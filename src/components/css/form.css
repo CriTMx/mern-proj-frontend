@@ -1,0 +1,50 @@
+.form
+{
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-container
+{
+    padding: 40px 0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.form-header
+{
+    margin: 20px 0 28px 0;
+}
+
+.form-header h1
+{
+    font-weight: 500;
+}
+
+.form > div
+{
+    margin: 0 auto;
+}
+
+.form-button
+{
+    width: 54%;
+}
+
+
+@media screen and (min-width: 425px)
+{
+    .form .form-control
+    {
+        width: 350px;
+    }
+}
+@media screen and (max-width: 425px)
+{
+    .form .form-control
+    {
+        width: auto;
+    }
+}
