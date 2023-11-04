@@ -1,19 +1,27 @@
 import logo from './logo.svg';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap';
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery';
+import Popper from 'popper.js';
 import './App.css';
-import Container from './components/Container';
-
 import './components/css/body.css';
-import './components/css/container.css';
-import './components/css/form.css'
-import Header from './components/Header';
+import './components/css/container-left.css';
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Container />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Signup />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

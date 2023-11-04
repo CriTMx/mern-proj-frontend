@@ -1,0 +1,19 @@
+.form-container
+{
+    margin: 120px 0;
+}
+
+.separator
+{
+    text-align: left;
+}
+.separator hr
+{
+    width: 50%;
+    margin: 16px 10px;
+}
+#separatorText
+{
+    margin-top: 5px;
+    color: gray;
+}

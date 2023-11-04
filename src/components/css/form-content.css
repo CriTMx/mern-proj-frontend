@@ -1,0 +1,54 @@
+.form-content label
+{
+    margin-left: 5px;
+}
+
+.form-group
+{
+    text-align: left;
+}
+
+.form-group input
+{
+    padding: 12px 14px;
+    border: 0;
+    width: 100%;
+}
+
+.form-group a, .form-check a
+{
+    text-decoration: none;
+}
+
+.btn-submit
+{
+    padding: 12px 40px;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.btn-submit:hover
+{
+    background-color: #b3cdee;
+}
+
+.btn-submit:active, .btn-submit:focus
+{
+    background-color: #80aae2;
+}
+
+.password-container
+{
+    position: relative;
+}
+
+#togglePassword
+{
+    background: none;
+    border: 0;
+    position: absolute;
+    top: 50%;
+    right: 2%;
+}
