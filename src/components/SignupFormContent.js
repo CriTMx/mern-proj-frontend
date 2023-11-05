@@ -1,6 +1,5 @@
 import React from 'react'
 import './css/form-content.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function FormContent() {
   return (
@@ -29,15 +28,12 @@ function FormContent() {
             </div>
         </div>
         <div className='form-row mb-4'>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+            <div class="form-group">
+                <label for='selectUserType'>Select User Type</label>
+                <select className='form-select shadow-sm'>
+                    <option value='listener' selected>Listener</option>
+                    <option value='artist'>Artist</option>
+                </select>
             </div>
         </div>
         <div className='form-row mb-4'>

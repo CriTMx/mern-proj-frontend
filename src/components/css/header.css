@@ -1,0 +1,46 @@
+.header
+{
+    background-color: black;
+    color: white;
+}
+
+.navbar-brand
+{
+    
+}
+
+.navbar-brand h4
+{
+    margin: 8px 0 8px 8px;
+}
+
+.navbar-collapse
+{
+    width: min-content;
+}
+
+.search-bar-container
+{
+    position: relative;
+}
+
+.search-bar-container .search-icon
+{
+    position: absolute;
+    top: 30%;
+    left: 85%;
+}
+
+.search-bar-container input, .search-bar-container input:focus
+{
+    background-color: #7e7e7e;
+    margin-left: 80%;
+    border: 0;
+    padding: 12px 14px;
+    width: 120%;
+}
+
+.search-bar-container input::placeholder
+{
+    padding-left: 25px;
+}

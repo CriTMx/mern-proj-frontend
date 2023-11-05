@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function LoginToSignupLink() {
   return (
     <div className='signup-link'>
-        Don't have an account yet? <a href='#' className='text-decoration-none'>Register here</a>
+        Don't have an account yet? <Link to='/signup' className='text-decoration-none'>Register here</Link>
     </div>
   )
 }

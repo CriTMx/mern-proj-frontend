@@ -10,11 +10,13 @@ import Popper from 'popper.js';
 import './App.css';
 import './components/css/body.css';
 import './components/css/container-left.css';
+import Header from './components/Header';
 
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <BrowserRouter>
         <Routes>
           <Route index element={<Signup />} />

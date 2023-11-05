@@ -8,7 +8,7 @@
     text-align: left;
 }
 
-.form-group input
+.form-group input, .form-group select
 {
     padding: 12px 14px;
     border: 0;
