@@ -7,7 +7,7 @@ import ContainerRightLogin from '../components/ContainerRightLogin'
 function Login() {
   return (
     <div className='login-page'>
-        <div className='row'>
+        <div className='row w-100'>
           <ContainerLeft />
           <ContainerRightLogin />
         </div>

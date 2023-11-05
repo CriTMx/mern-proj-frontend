@@ -1,5 +1,6 @@
 import React from 'react'
 import SignupFormContainer from './SignupFormContainer'
+import './css/container-right.css'
 
 function ContainerRight() {
   return (

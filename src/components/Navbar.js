@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter, Link } from 'react-router-dom'
 import LogoImg from './media/logo.png'
 import SearchIcon from './media/search_icon.png'
+import NavSignupButton from './NavSignupButton'
+import NavLoginButton from './NavLoginButton'
 
 function Navbar() {
   return (
@@ -31,6 +33,8 @@ function Navbar() {
                         <input type='text' className='form-control' id='searchQuery' placeholder='Search for a song...' onChange={() => handleSearchQuery()}/>
                         <img src={SearchIcon} width={'20px'} className='search-icon'/>
                     </div>
+                    <NavSignupButton />
+                    <NavLoginButton /> 
                 </div>
             </div>
         </nav>
