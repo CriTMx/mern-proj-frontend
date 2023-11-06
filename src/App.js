@@ -11,6 +11,7 @@ import './App.css';
 import './components/css/body.css';
 import './components/css/container-left.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/login' element={<Login />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

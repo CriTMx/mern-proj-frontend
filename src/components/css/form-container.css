@@ -11,9 +11,10 @@
 {
     width: 50%;
     margin: 16px 10px;
+    color: white;
 }
 #separatorText
 {
     margin-top: 5px;
-    color: gray;
+    color: rgb(255, 255, 255);
 }
