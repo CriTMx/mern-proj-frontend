@@ -1,37 +1,70 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './css/form-content.css';
 
 function FormContent() {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        userType: 'listener',
+    });
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: type === 'checkbox' ? checked : value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:2900/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    };
   return (
-    <form className='form-content'>
+      <form className='form-content' onSubmit={handleSubmit}>
         <div className='form-row d-flex mb-4'>
             <div className='form-group col-md-6 pe-2'>
-                <label for='inputFirstname'>First name</label>
-                <input type="text" className='form-control shadow-sm' id='inputFirstname' placeholder='Enter first name' />
+                <label htmlFor='inputFirstname'>First name</label>
+                  <input type="text" className='form-control shadow-sm' id='inputFirstname' name="firstName" value={formData.firstName} placeholder='Enter first name' onChange={handleChange} required/>
             </div>
             <div className='form-group col-md-6 ps-2'>
-                <label for='inputLastname'>Last name</label>
-                <input type="text" className='form-control shadow-sm' id='inputLastname' placeholder='Enter last name' />
+                <label htmlFor='inputLastname'>Last name</label>
+                  <input type="text" className='form-control shadow-sm' id='inputLastname' name="lastName" value={formData.lastName} placeholder='Enter last name' onChange={handleChange} required />
             </div>
         </div>
         <div className='form-row mb-4'>
             <div className='form-group'>
-                <label for='inputEmail'>Email Address</label>
-                <input type="email" className='form-control shadow-sm w-100' id='inputEmail' placeholder='Enter email address' />
+                <label htmlFor='inputEmail'>Email Address</label>
+                  <input type="email" className='form-control shadow-sm w-100' id='inputEmail' name="email" value={formData.email} placeholder='Enter email address' onChange={handleChange} required />
             </div>
         </div>
         <div className='form-row mb-4'>
             <div className='form-group password-container'>
-                <label for='inputPassword'>Password</label>
-                <input type="password" className='form-control shadow-sm w-100' id='inputPassword' placeholder='Enter password' />
-                <button type='button' id="togglePassword" onClick={() => togglePasswordVisibility()}><i class="far fa-eye fa-eye-slash" id="pwVisIcon"></i></button>
+                <label htmlFor='inputPassword'>Password</label>
+                  <input type="password" className='form-control shadow-sm w-100' id='inputPassword' name="password" value={formData.password} placeholder='Enter password' onChange={handleChange} required />
+                <button type='button' id="togglePassword" onClick={() => togglePasswordVisibility()}><i className="far fa-eye fa-eye-slash" id="pwVisIcon"></i></button>
             </div>
         </div>
         <div className='form-row mb-4'>
-            <div class="form-group">
-                <label for='selectUserType'>Select User Type</label>
-                <select className='form-select shadow-sm'>
-                    <option value='listener' selected>Listener</option>
+            <div className="form-group">
+                <label htmlFor='selectUserType'>Select User Type</label>
+                  <select className='form-select shadow-sm' id="selectUserType" name="userType" value={formData.userType} onChange={handleChange} required>
+                    <option value='listener'>Listener</option>
                     <option value='artist'>Artist</option>
                 </select>
             </div>
@@ -39,7 +72,7 @@ function FormContent() {
         <div className='form-row mb-4'>
             <div className='form-check text-start'>
                 <input type="checkbox" className='form-check-input shadow-sm' id='inputAgree'/>
-                <label for='inputAgree' className='form-check-label'>By creating an account, you agree to our <a href="#">Terms of Service</a>, <a href='#'>Privacy Policy</a> and our default <a href="#">Notification Settings</a></label>
+                <label htmlFor='inputAgree' className='form-check-label'>By creating an account, you agree to our <a href="#">Terms of Service</a>, <a href='#'>Privacy Policy</a> and our default <a href="#">Notification Settings</a></label>
             </div>
         </div>
         <div className='form-row mb-4'>

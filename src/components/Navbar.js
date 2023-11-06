@@ -14,8 +14,8 @@ function Navbar() {
                     <img src={LogoImg} width={'75px'} className='' />
                     <h4 className=''>Rhythmix</h4>
                 </div>
-                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className='navbar-collapse collapse' id='navbarSupportedContent'>
                     <ul className='navbar nav ms-5 mb-2 mb-lg-0 gap-lg-3 gap-1'>

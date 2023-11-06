@@ -7,7 +7,7 @@ import LoginToSignupLink from './LoginToSignupLink'
 
 function LoginFormContainer() {
   return (
-    <div className='form-container'>
+    <div className='form-container d-flex flex-column flex-content-start mt-5'>
         <LoginFormHeader />
         <LoginFormContent />
         <Separator />
