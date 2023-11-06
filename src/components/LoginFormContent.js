@@ -5,6 +5,7 @@ function LoginFormContent() {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
+        longterm: false
     });
     const [loginStatus, setLoginStatus] = useState('');
 
@@ -12,7 +13,7 @@ function LoginFormContent() {
         const { name, value, type, checked } = e.target;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value,
+            [name]: type === 'checkbox' ? checked : value,
         }));
     };
 
@@ -69,7 +70,7 @@ function LoginFormContent() {
         <div className='form-row mb-4'>
             <div className='form-check text-start'>
                 <input type="checkbox" className='form-check-input shadow-sm' id='inputRemember'/>
-                <label htmlFor='inputRemember' className='form-check-label'>Remember me</label>
+                <label htmlFor='inputRemember' className='form-check-label' name="longterm" onChange={handleChange} value={formData.longterm}>Remember me</label>
             </div>
         </div>
         <div className='form-row mb-4'>
