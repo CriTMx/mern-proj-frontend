@@ -4,8 +4,8 @@ import ContainerRight from '../components/ContainerRightSignup';
 
 function Signup() {
   return (
-    <div className="signup-page">
-        <div className="row w-100">
+    <div className="signup-page p-0">
+        <div className="row m-auto">
             <ContainerLeft />
             <ContainerRight />
         </div>

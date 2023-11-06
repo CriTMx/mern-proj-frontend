@@ -37,14 +37,17 @@ function LoginFormContent() {
                     console.log("User Type:", data.userType);
                 } else {
                     console.error('Login failed: No access token found');
+                    alert("Login failed");
                     setLoginStatus('failed');
                 }
             } else {
                 console.error('Login failed');
+                alert("Backend inaccessible")
                 setLoginStatus('failed');
             }
         } catch (error) {
             console.error('An error occurred:', error);
+            alert(error);
         }
     };
 
@@ -53,13 +56,13 @@ function LoginFormContent() {
         <div className='form-row mb-4'>
             <div className='form-group'>
                 <label htmlFor='inputEmailLogin'>Email Address</label>
-                <input type="email" className='form-control shadow-sm w-100' id='inputEmailLogin' placeholder='Enter email address' name='email' value={formData.email} onChange={handleChange}/>
+                  <input type="email" className='form-control shadow-sm w-100' id='inputEmailLogin' placeholder='Enter email address' name='email' value={formData.email} onChange={handleChange} required/>
             </div>
         </div>
         <div className='form-row mb-4'>
             <div className='form-group password-container'>
                 <label htmlFor='inputPasswordLogin'>Password</label>
-                  <input type="password" className='form-control shadow-sm w-100' id='inputPasswordLogin' placeholder='Enter password' name='password' value={formData.password} onChange={handleChange} />
+                  <input type="password" className='form-control shadow-sm w-100' id='inputPasswordLogin' placeholder='Enter password' name='password' value={formData.password} onChange={handleChange} required/>
                 <button type='button' id="togglePassword" onClick={() => togglePasswordVisibility()}><i className="far fa-eye fa-eye-slash" id="pwVisIcon"></i></button>
             </div>
         </div>

@@ -40,30 +40,30 @@ function FormContent() {
         <div className='form-row d-flex mb-4'>
             <div className='form-group col-md-6 pe-2'>
                 <label htmlFor='inputFirstname'>First name</label>
-                  <input type="text" className='form-control shadow-sm' id='inputFirstname' name="firstName" value={formData.firstName} placeholder='Enter first name' onChange={handleChange} />
+                  <input type="text" className='form-control shadow-sm' id='inputFirstname' name="firstName" value={formData.firstName} placeholder='Enter first name' onChange={handleChange} required/>
             </div>
             <div className='form-group col-md-6 ps-2'>
                 <label htmlFor='inputLastname'>Last name</label>
-                  <input type="text" className='form-control shadow-sm' id='inputLastname' name="lastName" value={formData.lastName} placeholder='Enter last name' onChange={handleChange} />
+                  <input type="text" className='form-control shadow-sm' id='inputLastname' name="lastName" value={formData.lastName} placeholder='Enter last name' onChange={handleChange} required />
             </div>
         </div>
         <div className='form-row mb-4'>
             <div className='form-group'>
                 <label htmlFor='inputEmail'>Email Address</label>
-                  <input type="email" className='form-control shadow-sm w-100' id='inputEmail' name="email" value={formData.email} placeholder='Enter email address' onChange={handleChange} />
+                  <input type="email" className='form-control shadow-sm w-100' id='inputEmail' name="email" value={formData.email} placeholder='Enter email address' onChange={handleChange} required />
             </div>
         </div>
         <div className='form-row mb-4'>
             <div className='form-group password-container'>
                 <label htmlFor='inputPassword'>Password</label>
-                  <input type="password" className='form-control shadow-sm w-100' id='inputPassword' name="password" value={formData.password} placeholder='Enter password' onChange={handleChange} />
+                  <input type="password" className='form-control shadow-sm w-100' id='inputPassword' name="password" value={formData.password} placeholder='Enter password' onChange={handleChange} required />
                 <button type='button' id="togglePassword" onClick={() => togglePasswordVisibility()}><i className="far fa-eye fa-eye-slash" id="pwVisIcon"></i></button>
             </div>
         </div>
         <div className='form-row mb-4'>
             <div className="form-group">
                 <label htmlFor='selectUserType'>Select User Type</label>
-                  <select className='form-select shadow-sm' id="selectUserType" name="userType" value={formData.userType} onChange={handleChange}>
+                  <select className='form-select shadow-sm' id="selectUserType" name="userType" value={formData.userType} onChange={handleChange} required>
                     <option value='listener'>Listener</option>
                     <option value='artist'>Artist</option>
                 </select>
