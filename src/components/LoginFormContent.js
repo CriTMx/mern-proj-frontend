@@ -11,7 +11,6 @@ function LoginFormContent() {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        console.log(type+" " + checked);
         setFormData((prevData) => ({
             ...prevData,
             [name]: type === 'checkbox' ? checked : value,
@@ -40,6 +39,9 @@ function LoginFormContent() {
                     console.log(JSON.stringify(formData));
                     localStorage.clear();
                     localStorage.setItem('user-token', data.accessToken);
+
+                    //remove this after we add a home page to redirect the user to
+                    window.location.reload();
                 } else {
                     console.error('Login failed: No access token found');
                     alert("Login failed");

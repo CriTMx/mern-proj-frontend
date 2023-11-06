@@ -4,6 +4,7 @@ import LogoImg from './media/logo.png'
 import SearchIcon from './media/search_icon.png'
 import NavSignupButton from './NavSignupButton'
 import NavLoginButton from './NavLoginButton'
+import NavbarEnd from './NavbarEnd'
 import './css/nav-buttons.css';
 
 function Navbar() {
@@ -33,8 +34,7 @@ function Navbar() {
                     <input type='text' className='form-control' id='searchQuery' placeholder='Search for a song...' onChange={() => handleSearchQuery()}/>
                     <img src={SearchIcon} width={'20px'} className='search-icon'/>
                 </div>
-                <NavSignupButton />
-                <NavLoginButton /> 
+                <NavbarEnd/>
             </div>
         </div>
     </nav>

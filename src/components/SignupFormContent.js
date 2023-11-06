@@ -5,6 +5,7 @@ function FormContent() {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
+        username: '',
         email: '',
         password: '',
         userType: 'listener',
