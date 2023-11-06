@@ -1,0 +1,44 @@
+.nav-signup-btn
+{
+    padding: 8px 14px;
+    background-color: #585757;
+    margin: 0 12px;
+}
+
+.nav-signup-btn:hover
+{
+    color: black;
+    background-color: white;
+}
+
+.nav-signup-btn .link
+{
+    color: white;
+}
+
+.nav-signup-btn:hover .link
+{
+    color: black;
+}
+
+.nav-login-btn
+{
+    padding: 8px 14px;
+    background-color: #efeded;
+    margin: 0 12px;
+}
+
+.nav-login-btn .link
+{
+    color: black;
+}
+
+.nav-login-btn:hover 
+{
+    background-color: #1da1f2;
+}
+
+.nav-login-btn:hover .link
+{
+    color: white;
+}

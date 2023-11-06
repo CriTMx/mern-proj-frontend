@@ -4,6 +4,7 @@ import LogoImg from './media/logo.png'
 import SearchIcon from './media/search_icon.png'
 import NavSignupButton from './NavSignupButton'
 import NavLoginButton from './NavLoginButton'
+import './css/nav-buttons.css';
 
 function Navbar() {
   return (

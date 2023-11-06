@@ -1,6 +1,7 @@
 .form-content label
 {
     margin-left: 5px;
+    color: white;
 }
 
 .form-group
@@ -31,12 +32,12 @@
 
 .btn-submit:hover
 {
-    background-color: #b3cdee;
+    background-color: #1da1f2;
 }
 
 .btn-submit:active, .btn-submit:focus
 {
-    background-color: #80aae2;
+    background-color: #1da1f2;
 }
 
 .password-container
