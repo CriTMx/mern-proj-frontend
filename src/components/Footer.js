@@ -11,18 +11,16 @@ import FooterBottom from './footer-components/FooterBottom'
 function Footer() {
   return (
     <div className='footer'>
-      <BrowserRouter>
-        <div className='container footer-container'>
-          <div className='row'>
-            <FooterList1 />
-            <FooterList2 />
-            <FooterList3 />
-            <FooterList4 />
-            <FooterSeparator />
-            <FooterBottom />
-          </div>
+      <div className='container footer-container'>
+        <div className='row'>
+          <FooterList1 />
+          <FooterList2 />
+          <FooterList3 />
+          <FooterList4 />
+          <FooterSeparator />
+          <FooterBottom />
         </div>
-      </BrowserRouter>
+      </div>
     </div>
   )
 }

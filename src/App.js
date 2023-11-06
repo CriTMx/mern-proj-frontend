@@ -16,17 +16,17 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
       <Header />
-      <BrowserRouter>
         <Routes>
           <Route index element={<Signup />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
         </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
