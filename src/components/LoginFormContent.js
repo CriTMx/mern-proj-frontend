@@ -11,6 +11,7 @@ function LoginFormContent() {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        console.log(type+" " + checked);
         setFormData((prevData) => ({
             ...prevData,
             [name]: type === 'checkbox' ? checked : value,
@@ -36,6 +37,9 @@ function LoginFormContent() {
                     console.log('Logged in successfully');
                     console.log('Access Token:', data.accessToken);
                     console.log("User Type:", data.userType);
+                    console.log(JSON.stringify(formData));
+                    localStorage.clear();
+                    localStorage.setItem('user-token', data.accessToken);
                 } else {
                     console.error('Login failed: No access token found');
                     alert("Login failed");
@@ -69,8 +73,8 @@ function LoginFormContent() {
         </div>
         <div className='form-row mb-4'>
             <div className='form-check text-start'>
-                <input type="checkbox" className='form-check-input shadow-sm' id='inputRemember'/>
-                <label htmlFor='inputRemember' className='form-check-label' name="longterm" onChange={handleChange} value={formData.longterm}>Remember me</label>
+                  <input type="checkbox" className='form-check-input shadow-sm' id='inputRemember' name="longterm" onChange={handleChange} value={formData.longterm} />
+                <label htmlFor='inputRemember' className='form-check-label' >Remember me</label>
             </div>
         </div>
         <div className='form-row mb-4'>
