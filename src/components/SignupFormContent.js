@@ -54,6 +54,12 @@ function FormContent() {
             </div>
         </div>
         <div className='form-row mb-4'>
+            <div className='form-group'>
+                <label htmlFor='inputUsername'>Username</label>
+                  <input type="text" className='form-control shadow-sm w-100' id='inputUsername' name="username" value={formData.username} placeholder='Enter username' onChange={handleChange} required />
+            </div>
+        </div>
+        <div className='form-row mb-4'>
             <div className='form-group password-container'>
                 <label htmlFor='inputPassword'>Password</label>
                   <input type="password" className='form-control shadow-sm w-100' id='inputPassword' name="password" value={formData.password} placeholder='Enter password' onChange={handleChange} required />
