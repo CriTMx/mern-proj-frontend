@@ -16,7 +16,7 @@ function NavbarEnd() {
     return (
         <div>
             {isLoggedIn ? (
-                <UserProfileButton />
+                <UserProfileButton/>
             ) : (
                 <React.Fragment>
                     <NavSignupButton />

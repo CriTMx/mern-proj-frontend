@@ -82,7 +82,7 @@ function FormContent() {
                 <input type="text" className='form-control shadow-sm w-100' id='inputUsername' name="username" value={formData.username} placeholder='Enter username' onChange={handleChange} required />
                 <span>
                     <button type='button' className='btn-user-avail' onClick={() => checkUsernameAvailability()}>Check availability</button>
-                    <p style={{color: 'red', display: 'inline-flex', 'margin-left': '12px'}} className='d-none' id='#userAvailText'>Username is unavailable</p>
+                    <p style={{color: 'red', display: 'inline-flex', marginLeft: '12px'}} className='d-none' id='#userAvailText'>Username is unavailable</p>
                 </span>
             </div>
         </div>

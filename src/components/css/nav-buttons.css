@@ -42,3 +42,7 @@
 {
     color: white;
 }
+
+.user-dropdown-menu a:hover{
+    background-color: gray;
+}
