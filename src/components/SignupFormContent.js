@@ -36,6 +36,28 @@ function FormContent() {
                 console.error('Error:', error);
             });
     };
+
+    const checkUsernameAvailability = () => {
+        const isAvailable = false;
+        const usernameAvailText = document.getElementById('#userAvailText');
+
+        if (!isAvailable)
+        {
+            if (usernameAvailText.classList.contains('d-none'))
+            {
+                usernameAvailText.classList.remove('d-none');
+            }
+            return;
+        }
+
+        if (!usernameAvailText.classList.contains('d-none'))
+        {
+            usernameAvailText.classList.add('d-none');
+        }
+        return;
+
+    }
+
   return (
       <form className='form-content' onSubmit={handleSubmit}>
         <div className='form-row d-flex mb-4'>
@@ -57,7 +79,11 @@ function FormContent() {
         <div className='form-row mb-4'>
             <div className='form-group'>
                 <label htmlFor='inputUsername'>Username</label>
-                  <input type="text" className='form-control shadow-sm w-100' id='inputUsername' name="username" value={formData.username} placeholder='Enter username' onChange={handleChange} required />
+                <input type="text" className='form-control shadow-sm w-100' id='inputUsername' name="username" value={formData.username} placeholder='Enter username' onChange={handleChange} required />
+                <span>
+                    <button type='button' className='btn-user-avail' onClick={() => checkUsernameAvailability()}>Check availability</button>
+                    <p style={{color: 'red', display: 'inline-flex', 'margin-left': '12px'}} className='d-none' id='#userAvailText'>Username is unavailable</p>
+                </span>
             </div>
         </div>
         <div className='form-row mb-4'>
