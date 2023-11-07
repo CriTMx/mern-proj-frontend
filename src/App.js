@@ -1,11 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap';
-import 'bootstrap/dist/js/bootstrap.js';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import './App.css';
 import './components/css/body.css';
 import './components/css/container-left.css';

@@ -9,10 +9,10 @@ function FooterList4() {
         <ul className='list-style-none text-white text-start'>
             <li className='list-group-item mb-md-5 mb-3'><b>Install App</b></li>
             <li className='list-group-item mb-md-4 mb-2'>
-                <Link to=''><img src={PlaystoreButton} width={'180px'} /></Link>
+          <Link to=''><img src={PlaystoreButton} id='play-store-button' className='storefront-button'/></Link>
             </li>
             <li className='list-group-item mb-md-4 mb-2'>
-                <Link to=''><img src={AppstoreButton} width={'180px'} /></Link>
+          <Link to=''><img src={AppstoreButton} id='apple-store-button' className='storefront-button'/></Link>
             </li>
         </ul>
     </div>
