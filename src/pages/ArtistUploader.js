@@ -19,27 +19,27 @@ function ArtistUploader() {
             </div>
         </Row>
         <Form className='form'>
-            <FormGroup className='form-group mb-4'>
+            <FormGroup className='form-group form-group-upload-page mb-4'>
                 <label className='form-group-label' htmlFor='inputSongTitle'>Song title</label>
                 <input type='text' id='inputSongTitle' className='form-control' name='songtitle' />
             </FormGroup>
-            <FormGroup className='form-group mb-4'>
+            <FormGroup className='form-group form-group-upload-page mb-4'>
                 <label className='form-group-label' htmlFor='inputSongPublisher'>Publisher name</label>
                 <input type='text' id='inputSongPublisher' className='form-control' name='songpublisher'></input>
             </FormGroup>
-            <FormGroup className='form-group mb-4'>
+            <FormGroup className='form-group form-group-upload-page mb-4'>
                 <label className='form-group-label' htmlFor='inputSongProducer'>Produced by</label>
                 <input type='text' id='inputSongProducer' className='form-control' name='songproducer' />
             </FormGroup>
-            <FormGroup className='form-group mb-4'>
+            <FormGroup className='form-group form-group-upload-page mb-4'>
                 <label className='form-group-label' htmlFor='inputSongComposer'>Composed by</label>
                 <input type='text' id='inputSongComposer' className='form-control' name='songcomposer' />
             </FormGroup>
-            <FormGroup className='form-group mb-4'>
+            <FormGroup className='form-group form-group-upload-page mb-4'>
                 <label className='form-group-label' htmlFor='inputSongDate'>Date of production</label>
                 <input type='date' id='inputSongDate' className='form-control' name='songdate' />
             </FormGroup>
-            <FormGroup className='form-group mb-5'>
+            <FormGroup className='form-group form-group-upload-page mb-5'>
                 <label className='form-group-label' htmlFor='inputSongDate'>Upload song file</label>
                 <input type='file' id='inputSongFile' className='form-control' name='songfile'/>
             </FormGroup>
