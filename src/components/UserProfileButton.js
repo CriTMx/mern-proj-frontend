@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { jwtDecode } from "jwt-decode"
 import Dropdown from 'react-bootstrap/Dropdown'
 
+import './css/user-dropdown-menu.css';
+import { Link } from 'react-router-dom';
+
 function UserProfileButton() {
   const [username, setUsername] = useState("USER");
 
@@ -17,18 +20,36 @@ function UserProfileButton() {
 
 
   return (
-    <Dropdown className='me-3'>
+    <Dropdown className='me-3 dropdown-container'>
       <Dropdown.Toggle id="dropdown-basic" className='d-flex flex-row align-items-center bg-transparent border-0'>
-        <span className='material-symbols-outlined'>account_circle</span>
+        <span className='material-symbols-outlined me-3'>account_circle</span>
         <div>
           {username}
         </div>
       </Dropdown.Toggle>
-      <Dropdown.Menu className='p-0 m-0 bg-transparent user-dropdown-menu'>
-        <Dropdown.Item href="#/action-1" className='text-white p-0'>Playlists</Dropdown.Item>
-        <Dropdown.Item href="#/action-2" className='text-white p-0'>Profile</Dropdown.Item>
-        <Dropdown.Item href="#/action-3" className='text-white p-0'>Settings</Dropdown.Item>
-        <Dropdown.Item as="button" className='bg-danger text-white p-0'>Log Off</Dropdown.Item>
+      <Dropdown.Menu className='p-0 m-0 user-dropdown-menu'>
+        <span className='d-flex dropdown-menu-row'>
+          <Dropdown.Item href="#/action-1" className='dropdown-item text-white float-start'>Playlists</Dropdown.Item>
+          <span className='material-symbols-outlined float-end text-white align-self-center me-2'>headphones</span>
+        </span>
+        <span className='d-flex dropdown-menu-row'>
+          <Dropdown.Item href="#/action-2" className='dropdown-item text-white float-start'>Profile</Dropdown.Item>
+          <span className='material-symbols-outlined float-end text-white align-self-center me-2'>person</span>
+        </span>
+        <span className='d-flex dropdown-menu-row'>
+          <Dropdown.Item href="#/action-2" className='dropdown-item text-white float-start'>Settings</Dropdown.Item>
+          <span className='material-symbols-outlined float-end text-white align-self-center me-2'>settings</span>
+        </span>
+        <span className='d-flex logout-button'>
+          <Dropdown.Item as="button" className='dropdown-item text-white float-start'>Log Off</Dropdown.Item>
+          <span className='material-symbols-outlined float-end text-white align-self-center me-2'>logout</span>
+        </span>
+        <div className='hr-dropdown-container d-flex justify-content-center'>
+          <hr className='text-white dropdown-hr'></hr>
+        </div>
+        <div className='dropdown-footer text-white'>
+          <p className='dropdown-footer-text'>Join <Link className='text-decoration-none dropdown-footer-link'>Rhythmix for artists</Link> and release your original songs</p>
+        </div>
       </Dropdown.Menu>
     </Dropdown>
   );

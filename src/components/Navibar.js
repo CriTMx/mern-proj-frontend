@@ -17,18 +17,18 @@ function Navibar() {
                 </Navbar.Brand>
                 <Navbar.Toggle className='bg-white' aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse className='justify-content-between' id="responsive-navbar-nav">
-                    <Nav className='ms-5 mb-2 mb-lg-0 gap-lg-3 gap-1'>
-                        <Nav.Link href="#" className='text-white text-uppercase'>Music</Nav.Link>
-                        <Nav.Link href="#" className='text-white text-uppercase'>Podcast</Nav.Link>
-                        <Nav.Link href="#" className='text-white text-uppercase'>Live</Nav.Link>
+                    <Nav className='ms-md-5 mb-2 mb-lg-0 gap-lg-3 gap-1'>
+                        <Nav.Link href="#" className='text-white text-uppercase text-center'>Music</Nav.Link>
+                        <Nav.Link href="#" className='text-white text-uppercase text-center'>Podcast</Nav.Link>
+                        <Nav.Link href="#" className='text-white text-uppercase text-center'>Live</Nav.Link>
                     </Nav>
-                    {/* <div className='container-right d-flex flex-row align-items-center '>
+                    <div className='container-right d-flex flex-row align-items-center '>
                         <div className='search-bar-container d-flex flex-row align-items-center justify-content-start pe-5'>
                             <img src={SearchIcon} className='search-icon' />
                             <input type='text' className='form-control' id='searchQuery' placeholder='Search for a song...' onChange={() => handleSearchQuery()} />
                         </div>
                         <NavbarEnd/>
-                    </div> */}
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

@@ -77,13 +77,21 @@ function FormContent() {
             </div>
         </div>
         <div className='form-row mb-4'>
-            <div className='form-group'>
+            <div className='form-group row'>
                 <label htmlFor='inputUsername'>Username</label>
-                <input type="text" className='form-control shadow-sm w-100' id='inputUsername' name="username" value={formData.username} placeholder='Enter username' onChange={handleChange} required />
-                <span>
+                <div className='col-sm-9' id='usernameCol'>
+                    <input type="text" className='form-control shadow-sm w-100' id='inputUsername' name="username" value={formData.username} placeholder='Enter username' onChange={handleChange} required />  
+                    
+                </div>
+                <div className='col-sm-3 mt-sm-0 mt-2' id='userAvailCol'>
                     <button type='button' className='btn-user-avail' onClick={() => checkUsernameAvailability()}>Check availability</button>
-                    <p style={{color: 'red', display: 'inline-flex', marginLeft: '12px'}} className='d-none' id='#userAvailText'>Username is unavailable</p>
-                </span>
+                    
+                </div>
+                <div className='row'>
+                    <div className='col-12 mt-2 d-flex justify-content-sm-start justify-content-center'>
+                        <p style={{color: 'red', display: 'inline', marginLeft: '12px'}} className='d-none' id='#userAvailText'>Username is unavailable</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div className='form-row mb-4'>

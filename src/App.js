@@ -6,6 +6,7 @@ import './components/css/body.css';
 import './components/css/container-left.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ArtistUploader from './pages/ArtistUploader';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<Signup />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/artist_upload' element={<ArtistUploader />} />
         </Routes>
         <Footer />
       </div>
