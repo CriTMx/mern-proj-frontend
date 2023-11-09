@@ -34,7 +34,7 @@ function Navibar() {
                         <Nav.Link href="#" className='text-white text-uppercase text-center'>Podcast</Nav.Link>
                         <Nav.Link href="#" className='text-white text-uppercase text-center'>Live</Nav.Link>
                     </Nav>
-                    <div className='container-right d-flex flex-row align-items-center '>
+                    <div className='navbar-container-right d-flex align-items-center '>
                         <div className='search-bar-container d-flex flex-row align-items-center justify-content-start'>
                             <img src={SearchIcon} className='search-icon' />
                             <input type='text' className='form-control' id='searchQuery' placeholder='Search for a song...' onChange={() => handleSearchQuery()} />

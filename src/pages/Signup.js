@@ -3,7 +3,6 @@ import SignupFormHeader from '../components/AuthHeader';
 import SignupFormContent from '../components/SignupFormContent';
 import SocialsSignupGroup from '../components/SocialsGroup';
 import '../components/css/form-container.css';
-import '../components/css/container-right.css'
 import { Link } from 'react-router-dom';
 
 
