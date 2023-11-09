@@ -57,4 +57,9 @@
         width: 100px;
         height: 100px;
     }
+
+    #artist-upload-form {
+        align-items: center;
+    }
 }
+

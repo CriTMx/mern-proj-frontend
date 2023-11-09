@@ -18,7 +18,7 @@ function ArtistUploader() {
                 <Button type='button' className='btn-upload-img mb-3 mt-md-4 mt-2'>Upload song cover</Button>
             </div>
         </Row>
-        <Form className='form'>
+        <Form className='form d-flex flex-column' id="artist-upload-form">
             <FormGroup className='form-group form-group-upload-page mb-4'>
                 <label className='form-group-label' htmlFor='inputSongTitle'>Song title</label>
                 <input type='text' id='inputSongTitle' className='form-control' name='songtitle' />

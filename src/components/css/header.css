@@ -47,9 +47,12 @@
 
 /* Additional media queries for even smaller screens if needed */
 @media (max-width: 480px) {
+    .search-bar-container {
+        width: 60%;
+    }
+
     .search-bar-container input,
     .search-bar-container input:focus {
-        display: none;
-        width: 60%; /* Further reduce the width for very small screens */
+        width: 100%; /* Further reduce the width for very small screens */
     }
 }
