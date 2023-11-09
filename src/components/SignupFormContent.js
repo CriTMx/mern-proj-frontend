@@ -28,7 +28,16 @@ function FormContent() {
             },
             body: JSON.stringify(formData),
         })
-            .then((response) => response.json())
+            .then((response) => {
+                if (response.ok) {
+                    response.json();
+                }
+                else if (response.status === 400) {
+                    response.json().then((data) => {
+                        alert(data.message);
+                    })
+                }
+            })
             .then((data) => {
                 console.log(data);
             })
@@ -41,20 +50,30 @@ function FormContent() {
         const isAvailable = false;
         const usernameAvailText = document.getElementById('#userAvailText');
 
-        if (!isAvailable)
-        {
-            if (usernameAvailText.classList.contains('d-none'))
-            {
-                usernameAvailText.classList.remove('d-none');
-            }
-            return;
-        }
-
-        if (!usernameAvailText.classList.contains('d-none'))
-        {
-            usernameAvailText.classList.add('d-none');
-        }
-        return;
+        fetch('http://localhost:2900/user/usernames', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({"username":formData.username}),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if(data.length>0){
+                    usernameAvailText.classList.remove('d-none');
+                    usernameAvailText.style.color = "red";
+                    usernameAvailText.innerHTML = "Username not available";
+                }
+                else{
+                    usernameAvailText.classList.remove('d-none');
+                    usernameAvailText.style.color = "limegreen";
+                    usernameAvailText.innerHTML = "Username available";
+                }
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
     }
 
