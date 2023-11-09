@@ -1,22 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from "jwt-decode"
+import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown'
 
 import './css/user-dropdown-menu.css';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 function UserProfileButton() {
   const [username, setUsername] = useState("USER");
+  let navigate = useNavigate();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   useEffect(() => {
-    const token = jwtDecode(localStorage.getItem('user-token'));
-    if (token.usr) {
-      console.log("token exists");
-      setUsername(token.usr);
-    } else {
-      setUsername("USER");
+    const token = localStorage.getItem('user-token');
+    if(token!=null){
+      const decodedToken = jwtDecode(token);
+      if (decodedToken.usr) {
+        console.log("token exists");
+        setUsername(decodedToken.usr);
+      } else {
+        setUsername("ERROR");
+      }
     }
-  }, [localStorage.getItem('user-token')]);
+    else {
+      setUsername("ERROR");
+    }
+  }, [isLoggedIn]);
+
+  const userLogout = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+    navigate("/login");
+  }
 
 
   return (
@@ -41,7 +57,7 @@ function UserProfileButton() {
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>settings</span>
         </span>
         <span className='d-flex logout-button'>
-          <Dropdown.Item as="button" className='dropdown-item text-white float-start'>Log Off</Dropdown.Item>
+          <Dropdown.Item as="button" className='dropdown-item text-white float-start' onClick={userLogout}>Log Off</Dropdown.Item>
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>logout</span>
         </span>
         <div className='hr-dropdown-container d-flex justify-content-center'>

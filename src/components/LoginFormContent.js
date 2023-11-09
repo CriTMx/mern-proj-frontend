@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './css/form-content.css';
+import { useAuth } from '../contexts/AuthContext';
 
 function LoginFormContent() {
     const [formData, setFormData] = useState({
@@ -7,7 +8,7 @@ function LoginFormContent() {
         password: '',
         longterm: false
     });
-    const [loginStatus, setLoginStatus] = useState('');
+    const {isLoggedIn, setIsLoggedIn } = useAuth();
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -39,18 +40,18 @@ function LoginFormContent() {
                     console.log(JSON.stringify(formData));
                     localStorage.clear();
                     localStorage.setItem('user-token', data.accessToken);
-
+                    setIsLoggedIn(true);
                     //remove this after we add a home page to redirect the user to
                     window.location.reload();
                 } else {
                     console.error('Login failed: No access token found');
                     alert("Login failed");
-                    setLoginStatus('failed');
+                    setIsLoggedIn(false);
                 }
             } else {
                 console.error('Login failed');
                 alert("Backend inaccessible")
-                setLoginStatus('failed');
+                setIsLoggedIn(false);
             }
         } catch (error) {
             console.error('An error occurred:', error);
