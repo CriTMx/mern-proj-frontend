@@ -2,11 +2,11 @@ import React from 'react'
 import '../css/jumbotron.css'
 import { Button } from 'react-bootstrap'
 
-function Jumbotron() {
+function Jumbotron({songImage, songName, artistName}) {
   return (
     <div className='jumbotron row conatiner-fluid mt-4 mb-4 align-items-center text-white'>
         <div className='col-md-3 d-flex justify-content-center'>
-            <img src={''} className='jumbotron-img' id='jumbotronImg'/>
+            <img src={songImage} className='jumbotron-img' id='jumbotronImg'/>
         </div>
         <div className='col-md-7 jumbotron-text-col'>
             <p className='jumbotron-header text-uppercase'>Song</p>
