@@ -1,0 +1,37 @@
+.section-buttons-relative
+{
+    /* position: relative; */
+    min-height: 150px;
+    transition: 0.2s;
+
+}
+
+.section-buttons
+{
+    overflow: scroll;
+    /* position: absolute;
+    left: 50%; */
+}
+
+
+.section-buttons .section-button
+{
+    padding: 8px 20px;
+    background-color: #7e7e7e;
+    border: 0;
+    margin: 10px 24px;
+}
+
+.section-buttons .section-button:hover
+{
+    background-color: #5c5c5c;
+}
+
+@media screen and (max-width: 1200px) {
+    .section-buttons .section-button
+    {
+        font-size: 12px;
+        padding: 2px 10px;
+        margin: 6px 18px;
+    }
+}

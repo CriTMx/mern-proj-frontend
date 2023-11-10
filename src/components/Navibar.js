@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavbarEnd from './NavbarEnd';
 import './css/nav-buttons.css';
+import { Link } from 'react-router-dom';
 
 function Navibar() {
     // Function to check the user's type from the decoded token
@@ -30,6 +31,7 @@ function Navibar() {
                 <Navbar.Toggle className='bg-white' aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className='justify-content-between' id="responsive-navbar-nav">
                     <Nav className='ms-md-5 mb-2 mb-lg-0 gap-lg-3 gap-1'>
+                        <Nav.Link><Link to='home' className='text-white text-uppercase text-center text-decoration-none'>Home</Link></Nav.Link>
                         <Nav.Link href="#" className='text-white text-uppercase text-center'>Music</Nav.Link>
                         <Nav.Link href="#" className='text-white text-uppercase text-center'>Podcast</Nav.Link>
                         <Nav.Link href="#" className='text-white text-uppercase text-center'>Live</Nav.Link>
