@@ -9,7 +9,6 @@ function NavbarEnd() {
     const {isLoggedIn, setIsLoggedIn} = useAuth();
 
     useEffect(() => {
-        console.log("useeffect called");
         if (userToken && userToken !== 'undefined') {
             setIsLoggedIn(true);
         }

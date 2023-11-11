@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { jwtDecode } from "jwt-decode"
 import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown'
-
 import './css/user-dropdown-menu.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -17,7 +16,6 @@ function UserProfileButton() {
     if(token!=null){
       const decodedToken = jwtDecode(token);
       if (decodedToken.usr) {
-        console.log("token exists");
         setUsername(decodedToken.usr);
       } else {
         setUsername("ERROR");

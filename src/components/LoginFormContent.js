@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import './css/form-content.css';
 import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function LoginFormContent() {
+    let navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -41,8 +44,7 @@ function LoginFormContent() {
                     localStorage.clear();
                     localStorage.setItem('user-token', data.accessToken);
                     setIsLoggedIn(true);
-                    //remove this after we add a home page to redirect the user to
-                    window.location.reload();
+                    navigate("/home");
                 } else {
                     console.error('Login failed: No access token found');
                     alert("Login failed");
