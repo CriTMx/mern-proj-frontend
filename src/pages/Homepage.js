@@ -8,7 +8,7 @@ function Homepage() {
   return (
     <div className='homepage-container container-fluid ps-4 pe-4'>
       <SectionButtons />
-      <Jumbotron />
+      <Jumbotron songImage={"https://i.scdn.co/image/ab67616d0000b2734a3cdc1e547b3d275d97cff8"}/>
       <RecArtists />
       <AboutSection />
     </div>
