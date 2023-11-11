@@ -5,7 +5,7 @@ import '../css/homepage-rec-artists.css'
 
 function RecArtists() {
   return (
-    <Container fluid='true' className='text-white'>
+    <Container fluid='true' className='text-white mb-5'>
         <h3 className='rec-artists-title mb-4'>Recommended Artists</h3>
         <Row className='d-flex justify-content-center'>
             <div className='col-4 d-lg-flex p-0 justify-content-around'>

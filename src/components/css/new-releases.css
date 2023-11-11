@@ -1,0 +1,53 @@
+.new-releases-instance
+{
+    width: 350px;
+    height: 380px;
+    background-color: #3A3838;
+}
+
+.new-releases-instance-img
+{
+    width: 250px;
+    height: 250px;
+}
+
+.new-releases-instance-subtitle
+{
+    color: #b7b7b7;
+}
+
+
+@media screen and (max-width: 1097px) {
+    .new-releases-instance-img
+    {
+        width: 150px;
+        height: 150px;
+    }
+
+    .new-releases-instance
+    {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .new-releases-instance-img
+    {
+        width: 120px;
+        height: 120px;
+    }
+
+    .new-releases-instance
+    {
+        width: 220px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #newReleasesInstance
+    {
+        margin: auto;
+    }
+}

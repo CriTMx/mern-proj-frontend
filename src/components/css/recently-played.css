@@ -1,0 +1,53 @@
+.recently-played-instance
+{
+    width: 350px;
+    height: 380px;
+    background-color: #3A3838;
+}
+
+.recently-played-instance-img
+{
+    width: 250px;
+    height: 250px;
+}
+
+.recently-played-instance-subtitle
+{
+    color: #b7b7b7;
+}
+
+
+@media screen and (max-width: 1097px) {
+    .recently-played-instance-img
+    {
+        width: 150px;
+        height: 150px;
+    }
+
+    .recently-played-instance
+    {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .recently-played-instance-img
+    {
+        width: 120px;
+        height: 120px;
+    }
+
+    .recently-played-instance
+    {
+        width: 220px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #recentlyPlayedInstance
+    {
+        margin: auto;
+    }
+}

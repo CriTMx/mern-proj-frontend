@@ -50,6 +50,15 @@
     color: black;
 }
 
+
+.jumbotron-feature-tags
+{
+    padding: 6px 18px;
+    background-color: #2d2c2c;
+    border-radius: 5px;
+}
+
+
 @media screen and (min-width: 1500px) {
 
     .jumbotron-img

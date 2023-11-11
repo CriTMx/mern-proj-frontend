@@ -1,0 +1,53 @@
+.populars-instance
+{
+    width: 350px;
+    height: 380px;
+    background-color: #3A3838;
+}
+
+.populars-instance-img
+{
+    width: 250px;
+    height: 250px;
+}
+
+.populars-instance-subtitle
+{
+    color: #b7b7b7;
+}
+
+
+@media screen and (max-width: 1097px) {
+    .populars-instance-img
+    {
+        width: 150px;
+        height: 150px;
+    }
+
+    .populars-instance
+    {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .populars-instance-img
+    {
+        width: 120px;
+        height: 120px;
+    }
+
+    .populars-instance
+    {
+        width: 220px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #popularsInstance
+    {
+        margin: auto;
+    }
+}
