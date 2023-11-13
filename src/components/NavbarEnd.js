@@ -18,7 +18,7 @@ function NavbarEnd() {
     }, [isLoggedIn]);
 
     return (
-        <div className='navbar-end ps-3'>
+        <div className='navbar-end d-flex flex-row justify-content-around gap-3 ms-3'>
             {isLoggedIn ? (
                 <UserProfileButton/>
             ) : (

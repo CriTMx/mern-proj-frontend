@@ -1,15 +1,16 @@
-import React, { useEffect,  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LogoImg from './media/logo.png';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import SearchIcon from './media/search_icon.png';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavbarEnd from './NavbarEnd';
-import './css/nav-buttons.css';
 import { useAuth } from '../contexts/AuthContext.js';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
+import './css/nav-buttons.css';
+
 
 function Navibar() {
     const { isLoggedIn, setIsLoggedIn } = useAuth();
@@ -21,14 +22,10 @@ function Navibar() {
             const decodedToken = jwtDecode(userToken);
             setIsArtist(decodedToken.type === 'artist');
         }
-        else{
+        else {
             setIsArtist(false);
         }
-    },[isLoggedIn]);
-
-
-
-
+    }, [isLoggedIn]);
 
     return (
         <Navbar collapseOnSelect expand="lg">
@@ -41,7 +38,7 @@ function Navibar() {
                 <Navbar.Collapse className='justify-content-between' id="responsive-navbar-nav">
                     <Nav className='ms-md-5 mb-2 mb-lg-0 gap-lg-3 gap-1'>
                         <LinkContainer to='home' className='navbar-link-button text-white text-uppercase text-center text-decoration-none'><Nav.Link className='navbar-link-button'>Home</Nav.Link></LinkContainer>
-                        
+
                         <Nav.Link href="#" className='navbar-link-button text-white text-uppercase text-center'>Music</Nav.Link>
                         <Nav.Link href="#" className='navbar-link-button text-white text-uppercase text-center'>Podcast</Nav.Link>
                         <Nav.Link href="#" className='navbar-link-button text-white text-uppercase text-center'>Live</Nav.Link>
@@ -56,10 +53,8 @@ function Navibar() {
                                 Upload
                                 <span className='material-symbols-outlined float-end text-white align-self-center me-2 ps-2'>upload</span>
                             </Nav.Link>
-
-                            
                         )}
-                        <NavbarEnd/>
+                        <NavbarEnd />
                     </div>
                 </Navbar.Collapse>
             </Container>
