@@ -1,0 +1,61 @@
+.player-container
+{
+    background-color: #3a3838;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid white;
+    width: 100%;
+}
+
+.player-song-instance-img
+{
+    width: 100px;
+    height: 100px;
+}
+
+.player-song-instance-text
+{
+    flex-direction: column;
+    justify-content: center;
+}
+
+.music-control-container
+{
+    font-size: 24px;
+}
+
+.music-control-btn
+{
+    background: none;
+    padding: 0;
+    border: 0;
+}
+
+.music-control-btn:hover
+{
+    color: #1877f2;
+    background: none;
+}
+
+.music-control-icon
+{
+    font-size: 48px;
+}
+
+.song-timer
+{
+    font-size: 14px;
+}
+
+.seeker-bar-container
+{
+    position: relative;
+}
+
+.seeker-circle
+{
+    position: absolute;
+    top: -25%;
+    left: 0%;
+    transform: translate(180%, 0%);
+}

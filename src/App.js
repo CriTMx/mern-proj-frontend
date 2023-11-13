@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ArtistUploader from './pages/ArtistUploader';
 import Homepage from './pages/Homepage';
+import PlayerUI from './components/PlayerUI';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='home' element={<Homepage />} />
         </Routes>
         <Footer />
+        <PlayerUI />
       </div>
     </BrowserRouter>
   );
