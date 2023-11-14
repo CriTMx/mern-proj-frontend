@@ -49,10 +49,12 @@ function Navibar() {
                             <input type='text' className='form-control' id='searchQuery' placeholder='Search for a song...' onChange={() => handleSearchQuery()} />
                         </div>
                         {isArtist && (
-                            <Nav.Link href="/artist_upload" className='text-white text-uppercase text-center ps-3 d-flex flex-row align-items-center'>
-                                Upload
-                                <span className='material-symbols-outlined float-end text-white align-self-center me-2 ps-2'>upload</span>
-                            </Nav.Link>
+                            <LinkContainer to="/artist_upload" className='text-white text-uppercase text-center ps-3 d-flex flex-row align-items-center'>
+                                <Nav.Link>
+                                    Upload
+                                    <span className='material-symbols-outlined float-end text-white align-self-center me-2 ps-2'>upload</span>
+                                </Nav.Link>
+                            </LinkContainer>
                         )}
                         <NavbarEnd />
                     </div>
