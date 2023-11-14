@@ -5,6 +5,7 @@
     bottom: 0;
     border-top: 1px solid white;
     width: 100%;
+    transition: 1s;
 }
 
 .player-song-instance-img
@@ -75,6 +76,34 @@
 #volumeBar
 {
     width: 30%;
+}
+
+.music-utility-container
+{
+    position: relative;
+}
+
+.expand-player-ui-btn
+{
+    background: none;
+    border: 0;
+    padding: 0;
+    transition: 0.5s;
+    position: absolute;
+    top: -20%;
+    right: -6%;
+}
+
+.rotate-icon
+{
+    transform: rotate(180deg) translate(0%, 40%);
+}
+
+.expand-player-ui-btn:hover, .expand-player-ui-btn:active, .expand-player-ui-btn:focus
+{
+    color: #1877f2;
+    background: none !important;
+    border: 0;
 }
 
 input[type=range] {

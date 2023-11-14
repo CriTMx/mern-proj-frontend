@@ -1,0 +1,144 @@
+.followings-container
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.artist-profile-banner
+{
+    height: calc(50vh - 100px);
+}
+
+.followers-label, .following-label
+{
+    display: flex;
+    padding: 10px 30px;
+    background-color: white;
+    border-radius: 14px;
+    width: min-content;
+    height: min-content;
+    margin-bottom: 20px;
+}
+
+.followers-label p, .following-label p
+{
+    margin-bottom: 0;
+}
+
+.followers-count, .following-count
+{
+    font-weight: 600;
+}
+
+.artist-picture-container
+{
+    position: relative;
+}
+
+.artist-picture
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+    /* position: absolute; */
+    transform: translate(0, -50%);
+}
+
+.artist-profile-options
+{
+    height: min-content;
+    padding: 6px 18px;
+    border: 0;
+    border-radius: 14px;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+}
+
+.followers-label, .following-label, .artist-profile-options
+{
+    transform: translate(0, -50%);
+}
+
+.artist-text
+{
+    transform: translate(0, -40%);
+}
+
+.artist-profile-tab
+{
+    background: none !important;
+    border: 0 !important;
+    font-weight: 500;
+    margin: 0 20px;
+}
+
+.artist-profile-tab:hover, .artist-profile-tab:active, .artist-profile-tab:focus
+{
+    color: #1877f2;
+}
+
+
+@media screen and (max-width: 900px) {
+    .followings-container
+    {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: safe;
+        text-align: center;
+        align-items: center; */
+        font-size: 12px;
+    }
+    .followers-label, .following-label
+    {
+        /* transform: translate(0, 0); */
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .followings-container
+    {
+        font-size: 10px;
+    }
+
+    .followers-label, .following-label
+    {
+        padding: 10px;
+    }
+
+    .artist-picture
+    {
+        width: 100px;
+        height: 100px;
+    }
+
+    .artist-text
+    {
+        transform: translate(0, -10%);
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .followers-label, .following-label
+    {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .artist-picture
+    {
+        width: 64px;
+        height: 64px;
+    }
+
+    .followers-label, .following-label
+    {
+        font-size: 8px;
+        padding: 8px;
+    }
+}
+

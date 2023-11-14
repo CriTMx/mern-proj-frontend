@@ -11,6 +11,7 @@ function PlayerUI() {
   var [progress, setProgress] = useState(0);
   var [volume, setVolume] = useState(50);
   var [count, setCount] = useState(0);
+  var [playerDisplay, setPlayerDisplay] = useState('shown');
 
   const sound = useRef(new Howl({ src: ['/music/song.mp3'] }));
   sound.current.on('load', () => {
@@ -115,10 +116,27 @@ function PlayerUI() {
     favButton.classList.toggle('symbol-filled');
   }
 
+  function handlePlayerUIDisplay()
+  {
+    var displayButton = document.getElementById('displayButton');
+    var playerUI = document.getElementById('playerUI')
+    displayButton.classList.toggle('rotate-icon');
+
+    if (playerDisplay === 'shown')
+    {
+      playerUI.style.bottom = '-130px';
+      setPlayerDisplay('hidden');
+      return;
+    }
+    playerUI.style.bottom = '0';
+    setPlayerDisplay('shown');
+    return;
+  }
+
   return (
-    <Container fluid='true' className='player-container text-white ps-5 pe-5 pt-4 pb-4'>
+    <Container fluid='true' className='player-container text-white ps-5 pe-5 pt-4 pb-4' id='playerUI'>
       <Row>
-        <div className='col-md-4'>
+        <div className='col-md-4 col-6'>
           <PlayerSongInstace playerSongImg={''} playerSongTitle={'Placeholder Title'} playerSongSubtitle={'By subtitle'} />
         </div>
         <div className='col-md-4 d-none d-md-block text-center music-control-container'>
@@ -135,10 +153,11 @@ function PlayerUI() {
             </div>
           </div>
         </div>
-        <div className='col-md-4 d-none d-md-flex align-items-center justify-content-end text-center music-utility-container'>
-          <Button className='music-favorite-button me-4' onClick={() => handleFavButtonClick()}><span className='material-symbols-outlined d-flex align-self-center music-utility-icon' id='musicFavHeartIcon'>favorite</span></Button>
-          <span className="material-symbols-outlined symbol-filled me-2" id='musicVolumeIcon'>volume_up</span>
+        <div className='col-md-4 col-6 d-flex align-items-center justify-content-end text-center music-utility-container'>
+          <Button className='music-favorite-button me-md-4 me-2' onClick={() => handleFavButtonClick()}><span className='material-symbols-outlined d-flex align-self-center music-utility-icon mt-0' id='musicFavHeartIcon'>favorite</span></Button>
+          <span className="material-symbols-outlined symbol-filled me-2 mt-0" id='musicVolumeIcon'>volume_up</span>
           <input type='range' id='volumeBar' onChange={() => handleVolumeBarChange()} min={0} max={100} value={volume} />
+          <Button className='expand-player-ui-btn' id='displayButton' onClick={() => handlePlayerUIDisplay()}><span className='material-symbols-outlined p-0 m-0'>expand_more</span></Button>
         </div>
       </Row>
     </Container>

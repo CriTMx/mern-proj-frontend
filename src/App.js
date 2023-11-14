@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ArtistUploader from './pages/ArtistUploader';
 import Homepage from './pages/Homepage';
 import PlayerUI from './components/PlayerUI';
+import ArtistProfile from './pages/ArtistProfile';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/artist_upload' element={<ArtistUploader />} />
           <Route path='home' element={<Homepage />} />
+          <Route path='/artist_profile' element={<ArtistProfile />} />
         </Routes>
         <Footer />
         <PlayerUI />
