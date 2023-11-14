@@ -19,8 +19,35 @@ function PlayerUI() {
     sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
   }
 
+  function handleVolumeBarChange()
+  {
+    const volumeBar = document.getElementById('volumeBar');
+    const volumeIcon = document.getElementById('musicVolumeIcon');
+    var volumeVal = volumeBar.value;
+    volumeBar.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + volumeVal + '%, #fff ' + volumeVal + '%, white 100%)'
+
+    if (volumeVal > 50)
+    {
+      volumeIcon.innerHTML = "volume_up";
+    }
+    else if (volumeVal <= 50 && volumeVal > 0)
+    {
+      volumeIcon.innerHTML = "volume_down";
+    }
+    else
+    {
+      volumeIcon.innerHTML = "volume_off";
+    }
+  }
+
   function swapPlayButton() {
     setPlayButton(playButton === 'play_circle' ? 'pause_circle' : 'play_circle');
+  }
+
+  function handleFavButtonClick()
+  {
+    var favButton = document.getElementById('musicFavHeartIcon');
+    favButton.classList.toggle('symbol-filled');
   }
 
   return (
@@ -31,9 +58,9 @@ function PlayerUI() {
         </div>
         <div className='col-md-4 d-none d-md-block text-center music-control-container'>
           <div>
-            <Button className='music-control-btn me-4'><span className='material-symbols-outlined d-flex align-self-center music-control-icon' id='prevMusicIcon'>skip_previous</span></Button>
-            <Button className='music-control-btn me-4' onClick={() => swapPlayButton()}><span className='material-symbols-outlined d-flex align-self-center music-control-icon' id='playMusicIcon'>{playButton}</span></Button>
-            <Button className='music-control-btn'><span className='material-symbols-outlined d-flex align-self-center music-control-icon' id='nextMusicIcon'>skip_next</span></Button>
+            <Button className='music-control-btn me-4'><span className='material-symbols-outlined symbol-filled d-flex align-self-center music-control-icon' id='prevMusicIcon'>skip_previous</span></Button>
+            <Button className='music-control-btn me-4' onClick={() => swapPlayButton()}><span className='material-symbols-outlined symbol-filled d-flex align-self-center music-control-icon' id='playMusicIcon'>{playButton}</span></Button>
+            <Button className='music-control-btn'><span className='material-symbols-outlined symbol-filled d-flex align-self-center music-control-icon' id='nextMusicIcon'>skip_next</span></Button>
           </div>
           <div className='mt-3 d-flex flex-row align-items-center gap-2'>
             <div className='float-start song-timer' id='songDurationCurrent'>0:00</div>
@@ -43,11 +70,14 @@ function PlayerUI() {
             </div>
           </div>
         </div>
+        <div className='col-md-4 d-none d-md-flex align-items-center justify-content-end text-center music-utility-container'>
+          <Button className='music-favorite-button me-4' onClick={() => handleFavButtonClick()}><span className='material-symbols-outlined d-flex align-self-center music-utility-icon' id='musicFavHeartIcon'>favorite</span></Button>
+          <span class="material-symbols-outlined symbol-filled me-2" id='musicVolumeIcon'>volume_up</span>
+          <input type='range' id='volumeBar' onChange={() => handleVolumeBarChange()} defaultValue={75} min={0} max={100} />
+        </div>
       </Row>
     </Container>
   )
 }
-
-
 
 export default PlayerUI

@@ -60,6 +60,23 @@
     transform: translate(180%, 0%);
 }
 
+.music-favorite-button
+{
+    background: none;
+    color: #1877f2;
+    border: 0;
+}
+
+.music-favorite-button:hover, .music-favorite-button:active, .music-control-btn:focus
+{
+    background: none !important;
+}
+
+#volumeBar
+{
+    width: 30%;
+}
+
 input[type=range] {
     height: 15px;
     border-radius: 5px;
@@ -85,11 +102,11 @@ input[type=range]::-webkit-slider-runnable-track {
 
 input[type=range]::-webkit-slider-thumb {
     box-shadow: 1px 1px 1px #000000;
-    border: 4px solid #30B0F0;
+    border: 4px solid #FFFFFF;
     height: 22px;
     width: 22px;
     border-radius: 22px;
-    background: #FFFFFF;
+    background: #30B0F0;
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -3.5px;
