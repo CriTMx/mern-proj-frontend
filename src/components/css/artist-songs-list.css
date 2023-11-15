@@ -1,0 +1,60 @@
+.artist-song-instance
+{
+    width: 350px;
+    height: 380px;
+    background-color: #3A3838;
+}
+
+.artist-song-instance-img
+{
+    width: 250px;
+    height: 250px;
+}
+
+.artist-song-instance-subtitle
+{
+    color: #b7b7b7;
+}
+
+.artist-songs-list
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 1097px) {
+    .artist-song-instance-img
+    {
+        width: 150px;
+        height: 150px;
+    }
+
+    .artist-song-instance
+    {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .artist-song-instance-img
+    {
+        width: 120px;
+        height: 120px;
+    }
+
+    .artist-song-instance
+    {
+        width: 220px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #artistSongInstance
+    {
+        margin: auto;
+    }
+}
