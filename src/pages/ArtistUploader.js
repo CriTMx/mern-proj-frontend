@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, FormGroup, Row, Form } from 'react-bootstrap';
+import '../components/css/artist-uploader.css';
 
 function ArtistUploader() {
     const [file, setFile] = useState(null);
@@ -53,35 +54,35 @@ function ArtistUploader() {
                 </div>
                 <div className='col-sm-9 text-center text-sm-start'>
                     <p className='img-square-caption-rule'>Song cover aspect ratio must be 1:1</p>
-                    <Button type='button' className='btn-upload-img mb-3 mt-md-4 mt-2'>Upload song cover</Button>
+                    <input className='artist-song-img-upload form-control w-50' placeholder='Upload a link to your song cover' />
                 </div>
             </Row>
             <Form className='form d-flex flex-column' id="artist-upload-form" onSubmit={handleFormSubmit} encType='multipart/form-data'>
                 <FormGroup className='form-group form-group-upload-page mb-4'>
                     <label className='form-group-label' htmlFor='inputSongTitle'>Song title</label>
-                    <input type='text' id='inputSongTitle' className='form-control' name='songtitle' />
+                    <input type='text' id='inputSongTitle' className='form-control' name='songtitle' placeholder='Enter song title...' />
                 </FormGroup>
                 <FormGroup className='form-group form-group-upload-page mb-4'>
                     <label className='form-group-label' htmlFor='inputSongPublisher'>Publisher name</label>
-                    <input type='text' id='inputSongPublisher' className='form-control' name='songpublisher'></input>
+                    <input type='text' id='inputSongPublisher' className='form-control' name='songpublisher' placeholder='Enter song publisher...'></input>
                 </FormGroup>
                 <FormGroup className='form-group form-group-upload-page mb-4'>
                     <label className='form-group-label' htmlFor='inputSongProducer'>Produced by</label>
-                    <input type='text' id='inputSongProducer' className='form-control' name='songproducer' />
+                    <input type='text' id='inputSongProducer' className='form-control' name='songproducer' placeholder='Enter song producer...' />
                 </FormGroup>
                 <FormGroup className='form-group form-group-upload-page mb-4'>
                     <label className='form-group-label' htmlFor='inputSongComposer'>Composed by</label>
-                    <input type='text' id='inputSongComposer' className='form-control' name='songcomposer' />
+                    <input type='text' id='inputSongComposer' className='form-control' name='songcomposer' placeholder='Enter song composer...' />
                 </FormGroup>
                 <FormGroup className='form-group form-group-upload-page mb-4'>
                     <label className='form-group-label' htmlFor='inputSongDate'>Date of production</label>
-                    <input type='date' id='inputSongDate' className='form-control' name='songdate' />
+                    <input type='date' id='inputSongDate' className='form-control' name='songdate' placeholder='Enter song production date...' />
                 </FormGroup>
                 <FormGroup className='form-group form-group-upload-page mb-5'>
                     <label className='form-group-label' htmlFor='inputSongFile'>Upload song file</label>
                     <input type='file' id='inputSongFile' className='form-control' name='songfile' onChange={handleFileChange} />
                 </FormGroup>
-                <Button type='submit' className='btn btn-primary'>Submit</Button>
+                <Button type='submit' className='btn btn-primary w-25 align-self-center'>Submit</Button>
             </Form>
         </div>
     );
