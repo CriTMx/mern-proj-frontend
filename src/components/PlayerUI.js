@@ -14,8 +14,15 @@ function PlayerUI() {
   var [playerDisplay, setPlayerDisplay] = useState('shown');
 
   const sound = useRef(new Howl({ src: ['/music/song.mp3'] }));
+
   sound.current.on('load', () => {
     console.log("loaded");
+    setPlayButtonIcon('play_circle');
+    setIsPlaying(false);
+    setProgress(0);
+    document.getElementById("seeker-bar").value = 0;
+    sliderChange();
+
     updateCurrentDuration();
     updateTotalDuration();
   });
@@ -27,15 +34,17 @@ function PlayerUI() {
       if(isPlaying){
         const sliderElement = document.getElementById("seeker-bar");
         updateCurrentDuration();
-
         setProgress((prevProgress) => {
-          const newProgress = Math.round((sound.current.seek() / sound.current.duration()) * 100);
-          sliderElement.value = newProgress;
-          const value = sliderElement.value;
-          console.log("value is " + value);
-          console.log("progress is " + newProgress);
-          sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
-          return newProgress;
+          if(sound.current.duration()!=0){
+            const newProgress = Math.round((sound.current.seek() / sound.current.duration()) * 100);
+            sliderElement.value = newProgress;
+            const value = sliderElement.value;
+            console.log("value is " + value);
+            console.log("progress is " + newProgress);
+            sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
+            return newProgress;
+          }
+          return prevProgress;
         })
       }
     }, 1000);
@@ -133,6 +142,35 @@ function PlayerUI() {
     return;
   }
 
+  function fetchAndPlayNewSong() {
+    const songId = '65550ff1d3601b84b682a8c4'; 
+    const newSongUrl = `http://localhost:2900/song/${songId}/download`;
+
+    fetch(newSongUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch audio file: ${response.statusText}`);
+        }
+        return response.blob();
+      })
+      .then(blob => {
+        const objectURL = URL.createObjectURL(blob);
+        
+        sound.current.stop();
+        sound.current.unload();
+    
+
+        // Update the Howl instance with the new audio file
+        sound.current = new Howl({ src: [objectURL], format: ['mp3']});
+
+        console.log('prolly updated');
+        console.log(objectURL);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
   return (
     <Container fluid='true' className='player-container text-white ps-5 pe-5 pt-4 pb-4' id='playerUI'>
       <Row>
@@ -160,6 +198,7 @@ function PlayerUI() {
           <Button className='expand-player-ui-btn' id='displayButton' onClick={() => handlePlayerUIDisplay()}><span className='material-symbols-outlined p-0 m-0'>expand_more</span></Button>
         </div>
       </Row>
+      <Button onClick={() => fetchAndPlayNewSong()}>Load New Song</Button>
     </Container>
   )
 }
