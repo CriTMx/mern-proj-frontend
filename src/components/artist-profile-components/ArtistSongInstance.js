@@ -23,7 +23,7 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
           playNewSong(songId);
           console.log(songId)
         }}>play_circle</span></Button>
-        <Button className='artist-song-edit-btn'><span className='material-symbols-outlined symbol-filled'>edit</span></Button>
+        <Button className='artist-song-edit-btn' onClick={() => handleSongEditButton()}><span className='material-symbols-outlined symbol-filled'>edit</span></Button>
       </div>
       <p className='artist-song-played-instance-title mb-2'>{artistSongTitle}</p>
       <p className='artist-song-instance-subtitle text-subtle'>{artistSongSubtitle}</p>
