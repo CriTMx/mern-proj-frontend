@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import '../css/artist-songs-list.css';
 import ArtistSongInstance from './ArtistSongInstance';
 
-function ArtistSongsList() {
+function ArtistSongsList({ playNewSong }) {
 
   const [songsData, setSongsData] = useState([]);
 
@@ -26,7 +26,7 @@ function ArtistSongsList() {
       <div className='artist-songs-list ps-2 pe-2'>
         {
           songsData.map((song) => (
-            <ArtistSongInstance key={song.id} artistSongImg={song.thumbnail} artistSongTitle={song.title} artistSongSubtitle={`By ${song.artist}`} />
+            <ArtistSongInstance key={song._id} songId={song.songstorage_id} artistSongImg={song.thumbnail} artistSongTitle={song.title} artistSongSubtitle={`By ${song.artist}`} playNewSong={playNewSong}/>
           ))
         }
       </div>

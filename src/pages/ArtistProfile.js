@@ -3,7 +3,7 @@ import '../components/css/artist-profile.css';
 import { Button, Row } from 'react-bootstrap';
 import ArtistProfileActiveTab from '../components/artist-profile-components/ArtistProfileActiveTab';
 
-function ArtistProfile() {
+function ArtistProfile({ playNewSong }) {
 
     var [activeArtistTab, setActiveArtistTab] = useState('my_songs');
 
@@ -44,7 +44,7 @@ function ArtistProfile() {
                     <hr className='mb-0' />
                 </div>
             </Row>
-            <ArtistProfileActiveTab activeTab={activeArtistTab} className='mb-5'/>
+            <ArtistProfileActiveTab activeTab={activeArtistTab} playNewSong={playNewSong} className='mb-5'/>
         </div>
     )
 }
