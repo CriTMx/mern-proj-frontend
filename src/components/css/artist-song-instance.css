@@ -1,0 +1,28 @@
+.song-editor-popup
+{
+    transition: 1s;
+    position: fixed;
+    z-index: 2;
+    top: 30%;
+    left: 50%;
+    right: 0;
+    transform: translate(-50%, -30%);
+    background-color: rgba(41, 41, 41, 0.7);
+    border-radius: 5px;
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    overflow: scroll;
+    max-height: 50vh;
+}
+
+.song-editor-popup .song-editor-close-btn
+{
+    position: absolute;
+    right: 2%;
+    top: 5%;
+}
+
+#closeButton
+{
+    font-size: 16px;
+}
