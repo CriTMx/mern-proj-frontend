@@ -8,11 +8,6 @@ function ArtistSongsList() {
     <Container fluid='true' className='text-white'>
         <div className='artist-songs-list ps-2 pe-2'>
             <ArtistSongInstance artistSongImg={''} artistSongTitle={'Placeholder Title'} artistSongSubtitle={'By subtitle'} />
-            <ArtistSongInstance artistSongImg={''} artistSongTitle={'Placeholder Title'} artistSongSubtitle={'By subtitle'} />
-            <ArtistSongInstance artistSongImg={''} artistSongTitle={'Placeholder Title'} artistSongSubtitle={'By subtitle'} />
-            <ArtistSongInstance artistSongImg={''} artistSongTitle={'Placeholder Title'} artistSongSubtitle={'By subtitle'} />
-            <ArtistSongInstance artistSongImg={''} artistSongTitle={'Placeholder Title'} artistSongSubtitle={'By subtitle'} />
-            <ArtistSongInstance artistSongImg={''} artistSongTitle={'Placeholder Title'} artistSongSubtitle={'By subtitle'} />
         </div>
     </Container>
   )
