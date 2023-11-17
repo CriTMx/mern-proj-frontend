@@ -47,7 +47,7 @@ function UserProfileButton() {
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>headphones</span>
         </span>
         <span className='d-flex dropdown-menu-row'>
-          <Dropdown.Item href="#/action-2" className='dropdown-item text-white float-start'>Profile</Dropdown.Item>
+          <Dropdown.Item href="artist_profile" className='dropdown-item text-white float-start'>Profile</Dropdown.Item>
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>person</span>
         </span>
         <span className='d-flex dropdown-menu-row'>

@@ -1,0 +1,66 @@
+.artist-img-preview
+{
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0px 1px 14px -3px rgba(255,255,255,0.75);
+    object-fit: cover;
+    -webkit-box-shadow: 0px 1px 14px -3px rgba(255,255,255,0.75);
+    -moz-box-shadow: 0px 1px 14px -3px rgba(255,255,255,0.75);
+}
+
+.btn-white
+{
+    color: black;
+    background-color: white;
+    border: 0;
+    width: max-content;
+}
+
+.profile-bio-text
+{
+    width: 100%;
+}
+
+.artist-edit-profile-container input.form-control
+{
+    /* width: 80%; */
+}
+
+.artist-edit-submit-btn
+{
+    padding: 6px 50px;
+    width: auto;
+}
+
+@media screen and (min-width: 1201px) {
+    .artist-img-preview
+    {
+        width: 256px;
+        height: 256px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .artist-img-preview
+    {
+        width: 192px;
+        height: 192px;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .artist-img-preview
+    {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .artist-img-preview
+    {
+        width: 100px;
+        height: 100px;
+    }
+}

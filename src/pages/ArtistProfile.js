@@ -39,6 +39,7 @@ function ArtistProfile() {
                 <div className='artist-profile-tabs'>
                     <Button className='artist-profile-tab' onClick={() => setActiveArtistTab('my_songs')}>My songs</Button>
                     <Button className='artist-profile-tab' onClick={() => setActiveArtistTab('upload_songs')}>Upload songs</Button>
+                    <Button className='artist-profile-tab' onClick={() => setActiveArtistTab('edit_profile')}>Edit profile</Button>
                     <Button className='artist-profile-tab' onClick={() => setActiveArtistTab('earnings')}>Earnings</Button>
                     <hr className='mb-0' />
                 </div>

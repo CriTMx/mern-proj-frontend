@@ -9,6 +9,7 @@ import ArtistUploader from './pages/ArtistUploader';
 import Homepage from './pages/Homepage';
 import PlayerUI from './components/PlayerUI';
 import ArtistProfile from './pages/ArtistProfile';
+import ArtistProfileEdit from './pages/ArtistProfileEdit';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/artist_upload' element={<ArtistUploader />} />
           <Route path='home' element={<Homepage />} />
           <Route path='/artist_profile' element={<ArtistProfile />} />
+          <Route path='/artist_profile/edit' element={<ArtistProfileEdit />} />
         </Routes>
         <Footer />
         <PlayerUI />
