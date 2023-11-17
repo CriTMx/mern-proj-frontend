@@ -13,9 +13,9 @@ function PlayerUI() {
   var [count, setCount] = useState(0);
   var [playerDisplay, setPlayerDisplay] = useState('shown');
 
-  const sound = useRef(new Howl({ src: ['/music/song.mp3'] }));
+  const [sound, setSound] = useState(new Howl({ src: ['/music/song.mp3'] }))
 
-  sound.current.on('load', () => {
+  sound.on('load', () => {
     console.log("loaded");
     setPlayButtonIcon('play_circle');
     setIsPlaying(false);
@@ -35,8 +35,8 @@ function PlayerUI() {
         const sliderElement = document.getElementById("seeker-bar");
         updateCurrentDuration();
         setProgress((prevProgress) => {
-          if(sound.current.duration()!=0){
-            const newProgress = Math.round((sound.current.seek() / sound.current.duration()) * 100);
+          if(sound.duration()!=0){
+            const newProgress = Math.round((sound.seek() / sound.duration()) * 100);
             sliderElement.value = newProgress;
             const value = sliderElement.value;
             console.log("value is " + value);
@@ -59,18 +59,18 @@ function PlayerUI() {
 
   useEffect(() => {
     console.log(isPlaying);
-    isPlaying ? sound.current.play() : sound.current.pause();
-    console.log(`sound playing state is ${sound.current.playing()}`);
+    isPlaying ? sound.play() : sound.pause();
+    console.log(`sound playing state is ${sound.playing()}`);
   }, [isPlaying]);
 
   useEffect(() => {
-    sound.current.volume(volume / 100);
+    sound.volume(volume / 100);
   }, [volume])
 
   function updateCurrentDuration() {
     const currentDurationElement = document.getElementById("songDurationCurrent");
 
-    const currentDuration = sound.current.seek();
+    const currentDuration = sound.seek();
     const currentMinutes = Math.floor(currentDuration / 60);
     const currentSeconds = Math.floor(currentDuration - currentMinutes * 60);
     const currentDurationSecondsString = currentSeconds.toString();
@@ -80,7 +80,7 @@ function PlayerUI() {
 
   function updateTotalDuration() {
     const totalDurationElement = document.getElementById("songDurationTotal");
-    const totalDuration = sound.current.duration();
+    const totalDuration = sound.duration();
     const totalMinutes = Math.floor(totalDuration / 60);
     const totalSeconds = Math.floor(totalDuration - totalMinutes * 60);
     const totalDurationSecondsString = totalSeconds.toString();
@@ -92,7 +92,7 @@ function PlayerUI() {
     const sliderElement = document.getElementById("seeker-bar");
     console.log('this called');
     var value = sliderElement.value;
-    sound.current.seek((value / 100) * sound.current.duration());
+    sound.seek((value / 100) * sound.duration());
     setProgress(value);
     sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
   }
@@ -143,7 +143,7 @@ function PlayerUI() {
   }
 
   function fetchAndPlayNewSong() {
-    const songId = '65550ff1d3601b84b682a8c4'; 
+    const songId = '6555275e43028eb2c2f563f6'; 
     const newSongUrl = `http://localhost:2900/song/${songId}/download`;
 
     fetch(newSongUrl)
@@ -156,12 +156,12 @@ function PlayerUI() {
       .then(blob => {
         const objectURL = URL.createObjectURL(blob);
         
-        sound.current.stop();
-        sound.current.unload();
+        sound.stop();
+        sound.unload();
     
 
         // Update the Howl instance with the new audio file
-        sound.current = new Howl({ src: [objectURL], format: ['mp3']});
+        setSound(new Howl({ src: [objectURL], format: ['mp3'] }));
 
         console.log('prolly updated');
         console.log(objectURL);

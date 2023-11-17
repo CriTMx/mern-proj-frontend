@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, FormGroup, Row, Form } from 'react-bootstrap';
 import '../components/css/artist-uploader.css';
+import { jwtDecode } from 'jwt-decode';
 
 function ArtistUploader() {
     const [file, setFile] = useState(null);
@@ -19,9 +20,12 @@ function ArtistUploader() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        const token = jwtDecode(localStorage.getItem('user-token'));
+
         const formData = new FormData();
         formData.append('songtitle', event.target.songtitle.value);
         formData.append('songimage', imageSource);
+        formData.append('songartist', token.usr);
         formData.append('songpublisher', event.target.songpublisher.value);
         formData.append('songproducer', event.target.songproducer.value);
         formData.append('songcomposer', event.target.songcomposer.value);
