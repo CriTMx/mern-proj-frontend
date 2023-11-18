@@ -1,11 +1,12 @@
 .player-container
 {
-    background-color: #3a3838;
+    background-color: rgba(58, 56, 56, 0.7);
     position: fixed;
     bottom: 0;
     border-top: 1px solid white;
     width: 100%;
     transition: 1s;
+    backdrop-filter: blur(10px);
 }
 
 .player-song-instance-img
