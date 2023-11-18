@@ -4,44 +4,9 @@ import { Howl, Howler } from 'howler';
 import './css/player-ui.css';
 import PlayerSongInstace from './PlayerSongInstace';
 
-function PlayerUI() {
-  var [playButtonIcon, setPlayButtonIcon] = useState('play_circle');
-  var [isPlaying, setIsPlaying] = useState(false);
-  var [musicTime, setMusicTime] = useState(0);
-  var [progress, setProgress] = useState(0);
+function PlayerUI({ playButtonIcon, isPlaying, updateCurrentDuration, updateTotalDuration, handlePlayButton, sliderChange, progress, sound }) {
   var [volume, setVolume] = useState(50);
-  var [count, setCount] = useState(0);
   var [playerDisplay, setPlayerDisplay] = useState('shown');
-
-  const sound = useRef(new Howl({ src: ['/music/song.mp3'] }));
-  sound.current.on('load', () => {
-    console.log("loaded");
-    updateCurrentDuration();
-    updateTotalDuration();
-  });
-
-  //called every second
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount(count + 1);
-      if(isPlaying){
-        const sliderElement = document.getElementById("seeker-bar");
-        updateCurrentDuration();
-
-        setProgress((prevProgress) => {
-          const newProgress = Math.round((sound.current.seek() / sound.current.duration()) * 100);
-          sliderElement.value = newProgress;
-          const value = sliderElement.value;
-          console.log("value is " + value);
-          console.log("progress is " + newProgress);
-          sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
-          return newProgress;
-        })
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [count]);
-
 
   useEffect(() => {
     updateCurrentDuration();
@@ -50,43 +15,13 @@ function PlayerUI() {
 
   useEffect(() => {
     console.log(isPlaying);
-    isPlaying ? sound.current.play() : sound.current.pause();
-    console.log(`sound playing state is ${sound.current.playing()}`);
+    isPlaying ? sound.play() : sound.pause();
+    // console.log(`sound playing state is ${sound.playing()}`);
   }, [isPlaying]);
 
   useEffect(() => {
-    sound.current.volume(volume / 100);
+    sound.volume(volume / 100);
   }, [volume])
-
-  function updateCurrentDuration() {
-    const currentDurationElement = document.getElementById("songDurationCurrent");
-
-    const currentDuration = sound.current.seek();
-    const currentMinutes = Math.floor(currentDuration / 60);
-    const currentSeconds = Math.floor(currentDuration - currentMinutes * 60);
-    const currentDurationSecondsString = currentSeconds.toString();
-    const finalCurrentDurationSecondsString = currentDurationSecondsString.length > 1 ? currentDurationSecondsString : "0" + currentDurationSecondsString;
-    currentDurationElement.innerHTML = `${currentMinutes}:${finalCurrentDurationSecondsString}`;
-  }
-
-  function updateTotalDuration() {
-    const totalDurationElement = document.getElementById("songDurationTotal");
-    const totalDuration = sound.current.duration();
-    const totalMinutes = Math.floor(totalDuration / 60);
-    const totalSeconds = Math.floor(totalDuration - totalMinutes * 60);
-    const totalDurationSecondsString = totalSeconds.toString();
-    const finalTotalDurationSecondsString = totalDurationSecondsString.length > 1 ? totalDurationSecondsString : "0" + totalDurationSecondsString;
-    totalDurationElement.innerHTML = `${totalMinutes}:${finalTotalDurationSecondsString}`;
-  }
-
-  function sliderChange() {
-    const sliderElement = document.getElementById("seeker-bar");
-    console.log('this called');
-    var value = sliderElement.value;
-    sound.current.seek((value / 100) * sound.current.duration());
-    setProgress(value);
-    sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
-  }
 
   function handleVolumeBarChange() {
     const volumeBar = document.getElementById('volumeBar');
@@ -106,24 +41,17 @@ function PlayerUI() {
     }
   }
 
-  function handlePlayButton() {
-    setPlayButtonIcon(playButtonIcon === 'play_circle' ? 'pause_circle' : 'play_circle');
-    setIsPlaying(isPlaying == false ? true : false);
-  }
-
   function handleFavButtonClick() {
     var favButton = document.getElementById('musicFavHeartIcon');
     favButton.classList.toggle('symbol-filled');
   }
 
-  function handlePlayerUIDisplay()
-  {
+  function handlePlayerUIDisplay() {
     var displayButton = document.getElementById('displayButton');
     var playerUI = document.getElementById('playerUI')
     displayButton.classList.toggle('rotate-icon');
 
-    if (playerDisplay === 'shown')
-    {
+    if (playerDisplay === 'shown') {
       playerUI.style.bottom = '-130px';
       setPlayerDisplay('hidden');
       return;
@@ -132,6 +60,8 @@ function PlayerUI() {
     setPlayerDisplay('shown');
     return;
   }
+
+ 
 
   return (
     <Container fluid='true' className='player-container text-white ps-5 pe-5 pt-4 pb-4' id='playerUI'>
@@ -160,6 +90,7 @@ function PlayerUI() {
           <Button className='expand-player-ui-btn' id='displayButton' onClick={() => handlePlayerUIDisplay()}><span className='material-symbols-outlined p-0 m-0'>expand_more</span></Button>
         </div>
       </Row>
+      {/* <Button onClick={() => fetchAndPlayNewSong()}>Load New Song</Button> */}
     </Container>
   )
 }

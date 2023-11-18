@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
 import { Button, FormGroup, Row, Form } from 'react-bootstrap';
 import '../components/css/artist-uploader.css';
+import { jwtDecode } from 'jwt-decode';
 
 function ArtistUploader() {
     const [file, setFile] = useState(null);
+    const [imageSource, setImageSource] = useState('');
 
     const handleFileChange = (event) => {
         // Handle file change and update the state
         setFile(event.target.files[0]);
     };
 
+    const imageSourceChange = (event) => {
+        setImageSource(event.target.value);
+        document.getElementById('song-cover-image').src = imageSource;
+    }
+
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        const token = jwtDecode(localStorage.getItem('user-token'));
+
         const formData = new FormData();
         formData.append('songtitle', event.target.songtitle.value);
+        formData.append('songimage', imageSource);
+        formData.append('songartist', token.usr);
         formData.append('songpublisher', event.target.songpublisher.value);
         formData.append('songproducer', event.target.songproducer.value);
         formData.append('songcomposer', event.target.songcomposer.value);
@@ -49,12 +60,12 @@ function ArtistUploader() {
             <Row className='mb-sm-4'>
                 <div className='col-sm-3'>
                     <div className='img-square d-flex justify-content-center justify-content-md-start'>
-                        <img className='song-cover-img-preview mb-3' />
+                        <img className='song-cover-img-preview mb-3' id='song-cover-image' src={imageSource}/>
                     </div>
                 </div>
                 <div className='col-sm-9 text-center text-sm-start'>
                     <p className='img-square-caption-rule'>Song cover aspect ratio must be 1:1</p>
-                    <input className='artist-song-img-upload form-control w-50' placeholder='Upload a link to your song cover' />
+                    <input className='artist-song-img-upload form-control w-50' placeholder='Upload a link to your song cover' onChange={imageSourceChange} name='songimage'/>
                 </div>
             </Row>
             <Form className='form d-flex flex-column' id="artist-upload-form" onSubmit={handleFormSubmit} encType='multipart/form-data'>
