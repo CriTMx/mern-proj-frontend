@@ -30,7 +30,7 @@ function FormContent() {
         })
             .then((response) => {
                 if (response.ok) {
-                    response.json();
+                    response.json().then(data=>alert(data.message));
                 }
                 else if (response.status === 400) {
                     response.json().then((data) => {

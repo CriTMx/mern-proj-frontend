@@ -4,7 +4,7 @@ import { Howl, Howler } from 'howler';
 import './css/player-ui.css';
 import PlayerSongInstace from './PlayerSongInstace';
 
-function PlayerUI({ playButtonIcon, isPlaying, updateCurrentDuration, updateTotalDuration, handlePlayButton, sliderChange, progress, sound }) {
+function PlayerUI({ playButtonIcon, isPlaying, updateCurrentDuration, updateTotalDuration, handlePlayButton, sliderChange, progress, sound, artist, thumbnail, title }) {
   var [volume, setVolume] = useState(50);
   var [playerDisplay, setPlayerDisplay] = useState('shown');
 
@@ -67,7 +67,7 @@ function PlayerUI({ playButtonIcon, isPlaying, updateCurrentDuration, updateTota
     <Container fluid='true' className='player-container text-white ps-5 pe-5 pt-4 pb-4' id='playerUI'>
       <Row>
         <div className='col-md-4 col-6'>
-          <PlayerSongInstace playerSongImg={''} playerSongTitle={'Placeholder Title'} playerSongSubtitle={'By subtitle'} />
+          <PlayerSongInstace playerSongImg={thumbnail} playerSongTitle={`${title}`} playerSongSubtitle={`By ${artist}`} />
         </div>
         <div className='col-md-4 d-none d-md-block text-center music-control-container'>
           <div>
