@@ -21,6 +21,9 @@ function App() {
   var [playButtonIcon, setPlayButtonIcon] = useState('play_circle');
 
   const [sound, setSound] = useState(new Howl({ src: ['/music/song.mp3'] }))
+  const [title, setTitle] = useState('No song');
+  const [artist, setArtist] = useState('Nobody');
+  const [thumbnail, setThumbnail] = useState('');
 
   sound.on('load', () => {
     console.log("loaded");
@@ -68,7 +71,7 @@ function App() {
     const sliderElement = document.getElementById("seeker-bar");
     console.log('this called');
     var value = sliderElement.value;
-    console.log(`after slider chage ${value} ${sound.duration()} ${(value / 100) * sound.duration() }`);
+    console.log(`after slider chage ${value} ${sound.duration()} ${(value / 100) * sound.duration()}`);
     sound.seek((value / 100) * sound.duration());
     setProgress(value);
     sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
@@ -97,6 +100,21 @@ function App() {
 
   function fetchAndPlayNewSong(songId) {
     const newSongUrl = `http://localhost:2900/song/${songId}/download`;
+    const newSongDetailsUrl = `http://localhost:2900/song/${songId}/details`;
+
+    fetch(newSongDetailsUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Song details failed to fetch');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setTitle(data.title);
+        setArtist(data.artist);
+        setThumbnail(data.thumbnail);
+        console.log(data.title + " " + data.artist);
+      })
 
     fetch(newSongUrl)
       .then(response => {
@@ -133,12 +151,12 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/artist_upload' element={<ArtistUploader />} />
           <Route path='home' element={<Homepage />} />
-          <Route path='/artist_profile' element={<ArtistProfile playNewSong={fetchAndPlayNewSong} />}/>
+          <Route path='/artist_profile' element={<ArtistProfile playNewSong={fetchAndPlayNewSong} />} />
           <Route path='/artist_profile/edit' element={<ArtistProfileEdit />} />
           <Route path='/user_profile' element={<UserProfile />} />
         </Routes>
         <Footer />
-        <PlayerUI isPlaying={isPlaying} updateCurrentDuration={updateCurrentDuration} updateTotalDuration={updateTotalDuration} playButtonIcon={playButtonIcon} handlePlayButton={handlePlayButton} sliderChange={sliderChange} progress={progress} sound={sound}/>
+        <PlayerUI isPlaying={isPlaying} updateCurrentDuration={updateCurrentDuration} updateTotalDuration={updateTotalDuration} playButtonIcon={playButtonIcon} handlePlayButton={handlePlayButton} sliderChange={sliderChange} progress={progress} sound={sound} title={title} thumbnail={thumbnail} artist={artist} />
       </div>
     </BrowserRouter>
   );

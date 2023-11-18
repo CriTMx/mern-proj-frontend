@@ -5,7 +5,7 @@ function PlayerSongInstace({playerSongImg, playerSongTitle, playerSongSubtitle})
   return (
     <div className='player-song-instance d-flex'>
         <div className=''>
-            <img src={''} className='player-song-instance-img me-4' />
+            <img src={playerSongImg} className='player-song-instance-img me-4' />
         </div>
         <div className='player-song-instance-text d-flex'>
             <h5 className='player-song-instance-title mb-2'>{playerSongTitle}</h5>
