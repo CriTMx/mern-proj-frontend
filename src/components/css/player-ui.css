@@ -9,6 +9,11 @@
     backdrop-filter: blur(10px);
 }
 
+.player-container-row
+{
+    position: relative;
+}
+
 .player-song-instance-img
 {
     width: 100px;
@@ -81,23 +86,26 @@
 
 .music-utility-container
 {
-    position: relative;
+    /* position: relative; */
 }
 
 .expand-player-ui-btn
 {
+    width: min-content;
     background: none;
     border: 0;
     padding: 0;
     transition: 0.5s;
     position: absolute;
-    top: -20%;
-    right: -6%;
+    top: 0;
+    right: 0;
+    transform: translate(100%, -50%);
+    z-index: 2;
 }
 
 .rotate-icon
 {
-    transform: rotate(180deg) translate(0%, 40%);
+    transform: rotate(180deg) translate(-100%, 100%);
 }
 
 .expand-player-ui-btn:hover, .expand-player-ui-btn:active, .expand-player-ui-btn:focus
@@ -204,4 +212,26 @@ input[type=range]:focus::-ms-fill-lower {
 
 input[type=range]:focus::-ms-fill-upper {
     background: #D4D6D8;
+}
+
+@media screen and (max-width: 503px) {
+    .music-control-icon
+    {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .music-favorite-button-mobile
+    {
+        position: absolute;
+        right: 10%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .music-favorite-button-mobile
+    {
+        display: none;
+    }
 }
