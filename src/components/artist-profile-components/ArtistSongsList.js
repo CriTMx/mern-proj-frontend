@@ -29,6 +29,7 @@ function ArtistSongsList({ playNewSong }) {
             <ArtistSongInstance key={song._id} songId={song.songstorage_id} artistSongImg={song.thumbnail} artistSongTitle={song.title} artistSongSubtitle={`By ${song.artist}`} playNewSong={playNewSong}/>
           ))
         }
+        <ArtistSongInstance />
       </div>
     </Container>
   )

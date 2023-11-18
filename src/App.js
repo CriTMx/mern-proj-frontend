@@ -13,6 +13,7 @@ import PlayerUI from './components/PlayerUI';
 import ArtistProfile from './pages/ArtistProfile';
 import ArtistProfileEdit from './pages/ArtistProfileEdit';
 import UserProfile from './pages/UserProfile';
+import AllSongs from './pages/AllSongs';
 
 function App() {
   var [isPlaying, setIsPlaying] = useState(false);
@@ -154,6 +155,7 @@ function App() {
           <Route path='/artist_profile' element={<ArtistProfile playNewSong={fetchAndPlayNewSong} />} />
           <Route path='/artist_profile/edit' element={<ArtistProfileEdit />} />
           <Route path='/user_profile' element={<UserProfile />} />
+          <Route path='/all_songs' element={<AllSongs />} />
         </Routes>
         <Footer />
         <PlayerUI isPlaying={isPlaying} updateCurrentDuration={updateCurrentDuration} updateTotalDuration={updateTotalDuration} playButtonIcon={playButtonIcon} handlePlayButton={handlePlayButton} sliderChange={sliderChange} progress={progress} sound={sound} title={title} thumbnail={thumbnail} artist={artist} />

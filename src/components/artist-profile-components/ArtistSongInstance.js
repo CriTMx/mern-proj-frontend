@@ -35,6 +35,11 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
           </Button>
           <h3 className='mb-5'>Edit song</h3>
           <Form className='d-flex flex-column justify-content-center align-items-center text-start'>
+            <FormGroup className='text-center mb-5'>
+              <img src={''} width={'100px'} height={'100px'} className='edit-song-img-preview mb-4' />
+              <input type='url' id='editSongImg' className='form-control mb-2' placeholder='Enter a link to the image' />
+              <Button className='edit-song-img-upload btn-white'>Upload</Button>
+            </FormGroup>
             <FormGroup className='mb-3'>
               <FormLabel htmlFor='editSongName'>Song name</FormLabel>
               <input type='text' id='editSongName' className='form-control' />

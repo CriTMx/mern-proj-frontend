@@ -7,7 +7,7 @@ function RecentlyPlayed() {
   return (
     <Container fluid='true' className='text-white mb-5'>
         <h3 className='recently-played-title mb-4'>Recently played</h3>
-        <div className='d-sm-flex d-block'>
+        <div className='d-flex flex-wrap'>
           <RecentlyPlayed_Instance recentlyPlayedImg={''} recentlyPlayedTitle={'Recently Played Placeholder'} recentlyPlayedSubtitle={'By test'} />
           <RecentlyPlayed_Instance recentlyPlayedImg={''} recentlyPlayedTitle={'Recently Played Placeholder'} recentlyPlayedSubtitle={'By test'} />
           <RecentlyPlayed_Instance recentlyPlayedImg={''} recentlyPlayedTitle={'Recently Played Placeholder'} recentlyPlayedSubtitle={'By test'} />
