@@ -1,0 +1,27 @@
+.user-profile-picture
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.user-profile-tab
+{
+    background: none !important;
+    border: 0 !important;
+    font-weight: 500;
+    margin: 0 20px;
+}
+
+.user-profile-tab:hover, .user-profile-picture:active, .user-profile-picture:focus
+{
+    color: #1877f2;
+}
+
+@media screen and (max-width: 768px) {
+    .user-profile-picture
+    {
+        width: 100px;
+        height: 100px;
+    }
+}

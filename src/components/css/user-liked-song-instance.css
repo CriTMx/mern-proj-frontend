@@ -1,0 +1,133 @@
+.user-liked-song-instance
+{
+    width: 350px;
+    height: 380px;
+    background-color: #3A3838;
+}
+
+.user-liked-song-instance-img
+{
+    width: 250px;
+    height: 250px;
+}
+
+.user-liked-song-instance-subtitle
+{
+    color: #b7b7b7;
+}
+
+.user-liked-songs-list
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.user-liked-song-img-container
+{
+    position: relative;
+}
+
+#userLikedIcon
+{
+    color: #1877f2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-250%, 150%);
+    border-radius: 50%;
+
+}
+
+.user-liked-song-play-btn
+{
+    background: none !important;
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    transform: translate(-130%, -40%);
+}
+
+.user-liked-song-play-btn span
+{
+    font-size: 50px;
+    border-radius: 50%;
+    box-shadow: -1px 4px 15px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 4px 15px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 15px -2px rgba(0,0,0,0.75);
+    background: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.user-liked-song-play-btn span:hover
+{
+    color: #1877f2;
+}
+
+@media screen and (max-width: 1097px) {
+    .user-liked-song-instance-img
+    {
+        width: 150px;
+        height: 150px;
+    }
+
+    .user-liked-song-instance
+    {
+        width: 280px;
+        height: 280px;
+    }
+    .user-liked-song-play-btn
+    {
+        transform: translate(-110%, -30%);
+    }
+    .user-liked-song-play-btn span
+    {
+        font-size: 40px;
+    }
+
+    #userLikedIcon
+    {
+        transform: translate(-300%, 120%);
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    #userLikedIcon
+    {
+        transform: translate(-300%, 100%);
+    }
+
+}
+
+@media screen and (max-width: 696px) {
+    .user-liked-song-instance-img
+    {
+        width: 120px;
+        height: 120px;
+    }
+
+    .user-liked-song-instance
+    {
+        width: 220px;
+        height: 250px;
+    }
+    .user-liked-song-play-btn span
+    {
+        font-size: 35px;
+    }
+    #userLikedIcon
+    {
+        transform: translate(-230%, 80%);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #userLikedSongInstance
+    {
+        margin: auto;
+    }
+}
