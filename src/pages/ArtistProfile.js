@@ -1,11 +1,42 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import '../components/css/artist-profile.css';
 import { Button, Row } from 'react-bootstrap';
 import ArtistProfileActiveTab from '../components/artist-profile-components/ArtistProfileActiveTab';
+import { jwtDecode } from 'jwt-decode';
 
 function ArtistProfile({ playNewSong, updatePlayerUIDetails }) {
 
     var [activeArtistTab, setActiveArtistTab] = useState('my_songs');
+    const [userDetails, setUserDetails] = useState({
+        name: 'Artist Name',
+        username: 'Artist Username',
+        email: 'placeholder@email.com'
+    })
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const token = localStorage.getItem('user-token');
+            const decoded = jwtDecode(token);
+            const id = decoded.id;
+            try {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/user/${id}/details`, {
+                    method: 'GET'
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails(data);
+                } else {
+                    console.error('Failed to fetch song details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching song details:', error.message);
+            }
+        };
+
+        fetchData();
+
+    }, []);
 
     return (
         <div className='artist-profile-container'>
@@ -22,7 +53,7 @@ function ArtistProfile({ playNewSong, updatePlayerUIDetails }) {
                     </div>
                 </div>
                 <div className='col-2 col-md-4 text-center artist-picture-container text-white'>
-                    <img className='artist-picture mb-0' src={''} />
+                    <img className='artist-picture mb-0' src={'/images/profile_pic.png'} />
                 </div>
                 <div className='col-5 col-md-4 d-flex justify-content-end'>
                     <Button className='artist-profile-options me-md-5 me-2'>...</Button>
@@ -30,9 +61,10 @@ function ArtistProfile({ playNewSong, updatePlayerUIDetails }) {
             </Row>
             <Row className='w-100'>
                 <div className='artist-text text-white text-center'>
-                    <h2 className='artist-name'>Artist Name</h2>
-                    <h6 className='artist-username mb-4 text-subtle'>Artist_username</h6>
-                    <p className='artist-description'>Placeholder artist description (longform)</p>
+                    <h2 className='artist-name'>{userDetails.name}</h2>
+                    <h6 className='artist-username mb-4 text-subtle'>{userDetails.username}</h6>
+                    <h6 className='artist-username mb-4 text-subtle'>{userDetails.email}</h6>
+                    <p className='artist-description'>Placeholder artist description (not implemented)</p>
                 </div>
             </Row>
             <Row className='text-center text-white w-100'>

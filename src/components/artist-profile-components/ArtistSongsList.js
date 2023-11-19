@@ -7,7 +7,7 @@ function ArtistSongsList({ playNewSong, updatePlayerUIDetails }) {
 
   const [songsData, setSongsData] = useState([]);
 
-  function updateSongsData(){
+  function updateSongsData() {
     fetch(`${process.env.REACT_APP_BACKEND_URI}/song/artist_uploaded`, {
       method: 'GET',
       headers: {
@@ -23,15 +23,28 @@ function ArtistSongsList({ playNewSong, updatePlayerUIDetails }) {
 
   useEffect(() => {
     updateSongsData();
-  },[])
+  }, [])
 
   return (
     <Container fluid='true' className='text-white'>
       <div className='artist-songs-list ps-2 pe-2'>
         {
-          songsData.map((song) => (
-            <ArtistSongInstance key={song._id} songId={song.songstorage_id} artistSongImg={song.thumbnail} artistSongTitle={song.title} artistSongSubtitle={`By ${song.artist}`} playNewSong={playNewSong} updateSongsData={updateSongsData} updatePlayerUIDetails={updatePlayerUIDetails} />
-          ))
+          songsData ? (
+            songsData.map((song) => (
+              <ArtistSongInstance
+                key={song._id}
+                songId={song.songstorage_id}
+                artistSongImg={song.thumbnail}
+                artistSongTitle={song.title}
+                artistSongSubtitle={`By ${song.artist}`}
+                playNewSong={playNewSong}
+                updateSongsData={updateSongsData}
+                updatePlayerUIDetails={updatePlayerUIDetails}
+              />
+            ))
+          ) : (
+            <p>No songs available</p>
+          )
         }
       </div>
     </Container>
