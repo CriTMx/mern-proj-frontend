@@ -10,7 +10,9 @@ function ArtistProfile({ playNewSong, updatePlayerUIDetails }) {
     const [userDetails, setUserDetails] = useState({
         name: 'Artist Name',
         username: 'Artist Username',
-        email: 'placeholder@email.com'
+        email: 'placeholder@email.com',
+        bio: 'Placeholder Bio',
+        profilePic: '/images/profile_pic.png'
     })
 
     useEffect(() => {
@@ -53,7 +55,7 @@ function ArtistProfile({ playNewSong, updatePlayerUIDetails }) {
                     </div>
                 </div>
                 <div className='col-2 col-md-4 text-center artist-picture-container text-white'>
-                    <img className='artist-picture mb-0' src={'/images/profile_pic.png'} />
+                    <img className='artist-picture mb-0' src={userDetails.profilePic} />
                 </div>
                 <div className='col-5 col-md-4 d-flex justify-content-end'>
                     <Button className='artist-profile-options me-md-5 me-2'>...</Button>
@@ -64,7 +66,7 @@ function ArtistProfile({ playNewSong, updatePlayerUIDetails }) {
                     <h2 className='artist-name'>{userDetails.name}</h2>
                     <h6 className='artist-username mb-4 text-subtle'>{userDetails.username}</h6>
                     <h6 className='artist-username mb-4 text-subtle'>{userDetails.email}</h6>
-                    <p className='artist-description'>Placeholder artist description (not implemented)</p>
+                    <p className='artist-description'>{userDetails.bio}</p>
                 </div>
             </Row>
             <Row className='text-center text-white w-100'>
