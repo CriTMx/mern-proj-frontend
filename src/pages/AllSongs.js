@@ -9,7 +9,7 @@ function AllSongs({ playNewSong}) {
   const [songsData, setSongsData] = useState([]);
 
   function updateSongsData() {
-    fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/song/all`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URI}/song/all`, {
       method: 'GET'
     })
       .then(response => response.json())

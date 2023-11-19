@@ -14,7 +14,7 @@ function UserEditProfile() {
         const decodedToken = jwtDecode(token);
         const id = decodedToken.id;
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/user/delete/${id}`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/user/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

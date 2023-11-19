@@ -25,7 +25,7 @@ function LoginFormContent() {
         e.preventDefault();
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/auth/login`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
