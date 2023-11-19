@@ -44,6 +44,7 @@ function ArtistUploader() {
             if (response.ok) {
                 const responseData = await response.json(); 
                 console.log('Song uploaded successfully!', responseData);
+                alert('Song uploaded successfully!');
             } else {
                 const errorData = await response.json();
                 console.error('Failed to upload song:', response.statusText, errorData.message);

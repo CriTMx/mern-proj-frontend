@@ -47,3 +47,7 @@
     padding: 10px 14px;
     font-size: 12px;
 }
+
+.dropdown-item.active {
+    background-color: transparent;
+}
