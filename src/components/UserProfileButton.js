@@ -15,7 +15,7 @@ function UserProfileButton() {
 
   useEffect(() => {
     const token = localStorage.getItem('user-token');
-    if(token!=null){
+    if (token != null) {
       const decodedToken = jwtDecode(token);
       if (decodedToken.usr) {
         setUsername(decodedToken.usr);
@@ -34,6 +34,21 @@ function UserProfileButton() {
     navigate("/login");
   }
 
+  function handleProfile(){
+    const token = localStorage.getItem('user-token');
+    if (token != null) {
+      const decodedToken = jwtDecode(token);
+      if (decodedToken.type=="artist") {
+        navigate("/artist_profile");
+      } else {
+        navigate("/user_profile");
+      }
+    }
+    else{
+      navigate("home");
+    }
+  }
+
 
   return (
     <Dropdown className='me-3 dropdown-container'>
@@ -49,11 +64,9 @@ function UserProfileButton() {
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>headphones</span>
         </span>
         <span className='d-flex dropdown-menu-row'>
-          <LinkContainer to='/artist_profile' active={false}>
-            <DropdownItem className='dropdown-item text-white bg-none' active={false}>
-                Profile
-            </DropdownItem>
-          </LinkContainer>
+          <DropdownItem className='dropdown-item text-white bg-none' onClick={handleProfile} active={false}>
+            Profile
+          </DropdownItem>
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>person</span>
         </span>
         <span className='d-flex dropdown-menu-row'>

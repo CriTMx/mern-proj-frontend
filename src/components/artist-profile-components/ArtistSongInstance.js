@@ -3,10 +3,11 @@ import { Button, Container, Form, FormGroup, FormLabel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/artist-song-instance.css';
 
-function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSongSubtitle, playNewSong, updateSongsData }) {
+function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSongSubtitle, playNewSong, updateSongsData, updatePlayerUIDetails }) {
 
   const [songDetails, setSongDetails] = useState({
     title: '',
+    thumbnail: '',
     publisher: '',
     composer: '',
     producer: '',
@@ -69,6 +70,7 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
         console.log('Updated Song:', updatedSongInfo);
         updateSongsData();
         handleEditorClose();
+        updatePlayerUIDetails(songId);
         alert(updatedSongInfo.message);
       } else {
         console.error('Failed to update song:', response.statusText);
@@ -107,7 +109,6 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
         <img src={artistSongImg} className='artist-song-instance-img mb-3 mt-4' />
         <Button className='artist-song-play-btn'><span className='material-symbols-outlined symbol-filled' onClick={() => {
           playNewSong(songId);
-          console.log(songId)
         }}>play_circle</span></Button>
         <Button className='artist-song-edit-btn' onClick={() => handleSongEditButton()}><span className='material-symbols-outlined symbol-filled'>edit</span></Button>
       </div>
@@ -124,10 +125,9 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
             e.preventDefault();
             handleSubmit();
           }}>
-            <FormGroup className='text-center mb-5'>
-              <img src={''} width={'100px'} height={'100px'} className='edit-song-img-preview mb-4' />
-              <input type='url' id='editSongImg' className='form-control mb-2' placeholder='Enter a link to the image' />
-              <Button className='edit-song-img-upload btn-white'>Upload</Button>
+            <FormGroup className='text-center mb-3'>
+              <img src={songDetails.thumbnail} width={'200px'} height={'200px'} className='edit-song-img-preview mb-4' />
+              <input type='url' id='editSongImg' className='form-control mb-2' placeholder='Enter a link to the image' value={songDetails.thumbnail} name='thumbnail' onChange={handleChange} />
             </FormGroup>
             <FormGroup className='mb-3'>
               <FormLabel htmlFor='editSongName'>Song name</FormLabel>

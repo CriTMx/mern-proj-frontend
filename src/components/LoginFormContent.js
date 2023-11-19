@@ -51,6 +51,14 @@ function LoginFormContent() {
                     setIsLoggedIn(false);
                 }
             } else {
+                if (response.status === 401) {
+                    response.json().then(data => {
+                        alert(data.message);
+                    }).catch(error => {
+                        console.error('Error parsing JSON:', error);
+                    });
+                    return;
+                }
                 console.error('Login failed');
                 alert("Backend inaccessible")
                 setIsLoggedIn(false);
