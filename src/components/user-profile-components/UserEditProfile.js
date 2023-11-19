@@ -24,7 +24,6 @@ function UserEditProfile() {
 
             if (response.ok) {
                 const deletedUserInfo = await response.json();
-                console.log('Deleted user:', deletedUserInfo);
                 alert(deletedUserInfo.message);
                 localStorage.removeItem('user-token');
                 setIsLoggedIn(false);

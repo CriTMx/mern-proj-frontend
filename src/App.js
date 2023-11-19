@@ -27,7 +27,6 @@ function App() {
   const [thumbnail, setThumbnail] = useState('');
 
   sound.on('load', () => {
-    console.log("loaded");
     setPlayButtonIcon('play_circle');
     setIsPlaying(false);
     setProgress(0);
@@ -51,8 +50,6 @@ function App() {
             const newProgress = Math.round((sound.seek() / sound.duration()) * 100);
             sliderElement.value = newProgress;
             const value = sliderElement.value;
-            console.log("value is " + value);
-            console.log("progress is " + newProgress);
             sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
             return newProgress;
           }
@@ -70,9 +67,7 @@ function App() {
 
   function sliderChange() {
     const sliderElement = document.getElementById("seeker-bar");
-    console.log('this called');
     var value = sliderElement.value;
-    console.log(`after slider chage ${value} ${sound.duration()} ${(value / 100) * sound.duration()}`);
     sound.seek((value / 100) * sound.duration());
     setProgress(value);
     sliderElement.style.background = 'linear-gradient(to right, #1877F2 0%, #1877F2 ' + value + '%, #fff ' + value + '%, white 100%)'
@@ -113,7 +108,6 @@ function App() {
         setTitle(data.title);
         setArtist(data.artist);
         setThumbnail(data.thumbnail);
-        console.log(data.title + " " + data.artist);
       })
   }
 
@@ -132,7 +126,6 @@ function App() {
         setTitle(data.title);
         setArtist(data.artist);
         setThumbnail(data.thumbnail);
-        console.log(data.title + " " + data.artist);
       })
 
     fetch(newSongUrl)
@@ -152,8 +145,6 @@ function App() {
         // Update the Howl instance with the new audio file
         setSound(new Howl({ src: [objectURL], format: ['mp3'] }));
 
-        console.log('prolly updated');
-        console.log(objectURL);
       })
       .catch(error => {
         console.error(error);

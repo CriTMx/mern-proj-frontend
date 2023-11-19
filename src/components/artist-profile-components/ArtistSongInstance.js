@@ -67,7 +67,6 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
 
       if (response.ok) {
         const updatedSongInfo = await response.json();
-        console.log('Updated Song:', updatedSongInfo);
         updateSongsData();
         handleEditorClose();
         updatePlayerUIDetails(songId);
@@ -92,7 +91,6 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
 
       if (response.ok) {
         const deletedSongInfo = await response.json();
-        console.log('Deleted Song:', deletedSongInfo);
         updateSongsData();
         alert(deletedSongInfo.message);
       } else {

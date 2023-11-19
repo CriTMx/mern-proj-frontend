@@ -24,8 +24,6 @@ function LoginFormContent() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        console.log(process.env.REACT_APP_BACKEND_URI);
-
         try {
             const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/auth/login`, {
                 method: 'POST',
@@ -39,10 +37,6 @@ function LoginFormContent() {
                 const data = await response.json(); 
 
                 if (data.accessToken) {
-                    console.log('Logged in successfully');
-                    console.log('Access Token:', data.accessToken);
-                    console.log("User Type:", data.userType);
-                    console.log(JSON.stringify(formData));
                     localStorage.clear();
                     localStorage.setItem('user-token', data.accessToken);
                     setIsLoggedIn(true);
