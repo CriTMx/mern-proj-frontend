@@ -17,7 +17,7 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/song/${songId}/details`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/song/${songId}/details`, {
           method: 'GET'
         });
 
@@ -56,7 +56,7 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/song/update/${songId}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/song/update/${songId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,6 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
 
       if (response.ok) {
         const updatedSongInfo = await response.json();
-        console.log('Updated Song:', updatedSongInfo);
         updateSongsData();
         handleEditorClose();
         updatePlayerUIDetails(songId);
@@ -82,7 +81,7 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
 
   const handleDeleteSong = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/song/delete/${songId}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/song/delete/${songId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +91,6 @@ function ArtistSongInstance({ songId, artistSongImg, artistSongTitle, artistSong
 
       if (response.ok) {
         const deletedSongInfo = await response.json();
-        console.log('Deleted Song:', deletedSongInfo);
         updateSongsData();
         alert(deletedSongInfo.message);
       } else {

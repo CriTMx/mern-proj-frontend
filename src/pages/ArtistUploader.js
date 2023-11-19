@@ -33,7 +33,7 @@ function ArtistUploader() {
         formData.append('songfile', file);
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/song/upload`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/song/upload`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('user-token')}`,
@@ -43,7 +43,6 @@ function ArtistUploader() {
 
             if (response.ok) {
                 const responseData = await response.json(); 
-                console.log('Song uploaded successfully!', responseData);
                 alert('Song uploaded successfully!');
             } else {
                 const errorData = await response.json();

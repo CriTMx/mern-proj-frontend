@@ -10,8 +10,8 @@ function Jumbotron({songImage, songName, artistName}) {
         </div>
         <div className='col-md-7 jumbotron-text-col'>
           <p className='jumbotron-header text-uppercase'>Song</p>
-          <h1 className='jumbotron-title mt-4 mb-4'>Song Title</h1>
-          <p className='jumbotron-subtitle mt-4 mb-4'>Artist Name</p>
+          <h1 className='jumbotron-title mt-4 mb-4'>{songName}</h1>
+          <p className='jumbotron-subtitle mt-4 mb-4'>{artistName}</p>
           <p className='jumbotron-description'>Jumbotron description text. Stream now on Rhythmix!</p>
           <Button className='jumbotron-button me-md-4 me-2 mb-4' id='jumbotronButton1'>Play</Button>
           <Button className='jumbotron-button btn-white me-md-4 mb-4 ms-2' id='jumbotronButton2'>Add to playlist</Button>

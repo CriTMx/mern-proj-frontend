@@ -14,9 +14,7 @@ function PlayerUI({ playButtonIcon, isPlaying, updateCurrentDuration, updateTota
   }, [isPlaying])
 
   useEffect(() => {
-    console.log(isPlaying);
     isPlaying ? sound.play() : sound.pause();
-    // console.log(`sound playing state is ${sound.playing()}`);
   }, [isPlaying]);
 
   useEffect(() => {
