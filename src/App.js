@@ -99,9 +99,27 @@ function App() {
     totalDurationElement.innerHTML = `${totalMinutes}:${finalTotalDurationSecondsString}`;
   }
 
+  function updatePlayerUIDetails(songId) {
+    const newSongDetailsUrl = `${process.env.REACT_APP_BACKEND_URI}:2900/song/${songId}/details`;
+
+    fetch(newSongDetailsUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Song details failed to fetch');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setTitle(data.title);
+        setArtist(data.artist);
+        setThumbnail(data.thumbnail);
+        console.log(data.title + " " + data.artist);
+      })
+  }
+
   function fetchAndPlayNewSong(songId) {
-    const newSongUrl = `http://localhost:2900/song/${songId}/download`;
-    const newSongDetailsUrl = `http://localhost:2900/song/${songId}/details`;
+    const newSongUrl = `${process.env.REACT_APP_BACKEND_URI}:2900/song/${songId}/download`;
+    const newSongDetailsUrl = `${process.env.REACT_APP_BACKEND_URI}:2900/song/${songId}/details`;
 
     fetch(newSongDetailsUrl)
       .then(response => {
@@ -152,10 +170,10 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/artist_upload' element={<ArtistUploader />} />
           <Route path='home' element={<Homepage />} />
-          <Route path='/artist_profile' element={<ArtistProfile playNewSong={fetchAndPlayNewSong} />} />
+          <Route path='/artist_profile' element={<ArtistProfile playNewSong={fetchAndPlayNewSong} updatePlayerUIDetails={updatePlayerUIDetails} />} />
           <Route path='/artist_profile/edit' element={<ArtistProfileEdit />} />
           <Route path='/user_profile' element={<UserProfile />} />
-          <Route path='/all_songs' element={<AllSongs />} />
+          <Route path='/all_songs' element={<AllSongs playNewSong={fetchAndPlayNewSong} />} />
         </Routes>
         <Footer />
         <PlayerUI isPlaying={isPlaying} updateCurrentDuration={updateCurrentDuration} updateTotalDuration={updateTotalDuration} playButtonIcon={playButtonIcon} handlePlayButton={handlePlayButton} sliderChange={sliderChange} progress={progress} sound={sound} title={title} thumbnail={thumbnail} artist={artist} />

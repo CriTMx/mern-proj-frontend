@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { jwtDecode } from "jwt-decode"
 import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown'
+import { DropdownItem } from 'react-bootstrap';
 import './css/user-dropdown-menu.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function UserProfileButton() {
   const [username, setUsername] = useState("USER");
@@ -13,7 +15,7 @@ function UserProfileButton() {
 
   useEffect(() => {
     const token = localStorage.getItem('user-token');
-    if(token!=null){
+    if (token != null) {
       const decodedToken = jwtDecode(token);
       if (decodedToken.usr) {
         setUsername(decodedToken.usr);
@@ -32,6 +34,21 @@ function UserProfileButton() {
     navigate("/login");
   }
 
+  function handleProfile(){
+    const token = localStorage.getItem('user-token');
+    if (token != null) {
+      const decodedToken = jwtDecode(token);
+      if (decodedToken.type=="artist") {
+        navigate("/artist_profile");
+      } else {
+        navigate("/user_profile");
+      }
+    }
+    else{
+      navigate("home");
+    }
+  }
+
 
   return (
     <Dropdown className='me-3 dropdown-container'>
@@ -43,19 +60,21 @@ function UserProfileButton() {
       </Dropdown.Toggle>
       <Dropdown.Menu className='p-0 m-0 user-dropdown-menu'>
         <span className='d-flex dropdown-menu-row'>
-          <Dropdown.Item href="#/action-1" className='dropdown-item text-white float-start'>Playlists</Dropdown.Item>
+          <DropdownItem href="#/action-1" className='dropdown-item text-white float-start'>Playlists</DropdownItem>
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>headphones</span>
         </span>
         <span className='d-flex dropdown-menu-row'>
-          <Dropdown.Item href="artist_profile" className='dropdown-item text-white float-start'>Profile</Dropdown.Item>
+          <DropdownItem className='dropdown-item text-white bg-none' onClick={handleProfile} active={false}>
+            Profile
+          </DropdownItem>
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>person</span>
         </span>
         <span className='d-flex dropdown-menu-row'>
-          <Dropdown.Item href="#/action-2" className='dropdown-item text-white float-start'>Settings</Dropdown.Item>
+          <DropdownItem href="#/action-2" className='dropdown-item text-white float-start'>Settings</DropdownItem>
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>settings</span>
         </span>
         <span className='d-flex logout-button'>
-          <Dropdown.Item as="button" className='dropdown-item text-white float-start' onClick={userLogout}>Log Off</Dropdown.Item>
+          <DropdownItem as="button" className='dropdown-item text-white float-start' onClick={userLogout}>Log Off</DropdownItem>
           <span className='material-symbols-outlined float-end text-white align-self-center me-2'>logout</span>
         </span>
         <div className='hr-dropdown-container d-flex justify-content-center'>

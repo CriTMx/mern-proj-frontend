@@ -24,8 +24,10 @@ function LoginFormContent() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
+        console.log(process.env.REACT_APP_BACKEND_URI);
+
         try {
-            const response = await fetch('http://localhost:2900/auth/login', {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,6 +53,14 @@ function LoginFormContent() {
                     setIsLoggedIn(false);
                 }
             } else {
+                if (response.status === 401) {
+                    response.json().then(data => {
+                        alert(data.message);
+                    }).catch(error => {
+                        console.error('Error parsing JSON:', error);
+                    });
+                    return;
+                }
                 console.error('Login failed');
                 alert("Backend inaccessible")
                 setIsLoggedIn(false);

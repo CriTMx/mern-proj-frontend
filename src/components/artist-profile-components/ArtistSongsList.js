@@ -3,12 +3,12 @@ import { Container } from 'react-bootstrap'
 import '../css/artist-songs-list.css';
 import ArtistSongInstance from './ArtistSongInstance';
 
-function ArtistSongsList({ playNewSong }) {
+function ArtistSongsList({ playNewSong, updatePlayerUIDetails }) {
 
   const [songsData, setSongsData] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:2900/song/artist_uploaded', {
+  function updateSongsData(){
+    fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/song/artist_uploaded`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('user-token')}`,
@@ -19,6 +19,10 @@ function ArtistSongsList({ playNewSong }) {
         setSongsData(data.songs);
       })
       .catch(error => console.error('Error fetching data:', error));
+  }
+
+  useEffect(() => {
+    updateSongsData();
   },[])
 
   return (
@@ -26,10 +30,9 @@ function ArtistSongsList({ playNewSong }) {
       <div className='artist-songs-list ps-2 pe-2'>
         {
           songsData.map((song) => (
-            <ArtistSongInstance key={song._id} songId={song.songstorage_id} artistSongImg={song.thumbnail} artistSongTitle={song.title} artistSongSubtitle={`By ${song.artist}`} playNewSong={playNewSong}/>
+            <ArtistSongInstance key={song._id} songId={song.songstorage_id} artistSongImg={song.thumbnail} artistSongTitle={song.title} artistSongSubtitle={`By ${song.artist}`} playNewSong={playNewSong} updateSongsData={updateSongsData} updatePlayerUIDetails={updatePlayerUIDetails} />
           ))
         }
-        <ArtistSongInstance />
       </div>
     </Container>
   )
