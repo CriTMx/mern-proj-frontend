@@ -8,7 +8,7 @@ function ArtistSongsList({ playNewSong, updatePlayerUIDetails }) {
   const [songsData, setSongsData] = useState([]);
 
   function updateSongsData(){
-    fetch('http://localhost:2900/song/artist_uploaded', {
+    fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/song/artist_uploaded`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('user-token')}`,

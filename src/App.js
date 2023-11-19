@@ -100,7 +100,7 @@ function App() {
   }
 
   function updatePlayerUIDetails(songId) {
-    const newSongDetailsUrl = `http://localhost:2900/song/${songId}/details`;
+    const newSongDetailsUrl = `${process.env.REACT_APP_BACKEND_URI}:2900/song/${songId}/details`;
 
     fetch(newSongDetailsUrl)
       .then(response => {
@@ -118,8 +118,8 @@ function App() {
   }
 
   function fetchAndPlayNewSong(songId) {
-    const newSongUrl = `http://localhost:2900/song/${songId}/download`;
-    const newSongDetailsUrl = `http://localhost:2900/song/${songId}/details`;
+    const newSongUrl = `${process.env.REACT_APP_BACKEND_URI}:2900/song/${songId}/download`;
+    const newSongDetailsUrl = `${process.env.REACT_APP_BACKEND_URI}:2900/song/${songId}/details`;
 
     fetch(newSongDetailsUrl)
       .then(response => {

@@ -21,7 +21,7 @@ function FormContent() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:2900/auth/register', {
+        fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ function FormContent() {
         const isAvailable = false;
         const usernameAvailText = document.getElementById('#userAvailText');
 
-        fetch('http://localhost:2900/user/usernames', {
+        fetch(`${process.env.REACT_APP_BACKEND_URI}:2900/user/usernames`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
