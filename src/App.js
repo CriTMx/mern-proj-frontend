@@ -24,7 +24,7 @@ function App() {
   const [sound, setSound] = useState(new Howl({ src: ['/music/song.mp3'] }))
   const [title, setTitle] = useState('No song');
   const [artist, setArtist] = useState('Nobody');
-  const [thumbnail, setThumbnail] = useState('');
+  const [thumbnail, setThumbnail] = useState('/images/no_song.png');
 
   sound.on('load', () => {
     setPlayButtonIcon('play_circle');
