@@ -16,7 +16,7 @@ function Login() {
           <hr className='hr' />
         </div>  
         <SocialsLoginGroup />
-        <div className='signup-link text-white'>
+        <div className='signup-link text-white text-center'>
           Don't have an account yet? <Link to='/signup' className='text-decoration-none'>Register here</Link>
         </div>
       </div>
