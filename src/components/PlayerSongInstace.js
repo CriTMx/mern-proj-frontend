@@ -3,8 +3,8 @@ import { Row } from 'react-bootstrap'
 
 function PlayerSongInstace({playerSongImg, playerSongTitle, playerSongSubtitle}) {
   return (
-    <div className='player-song-instance d-flex'>
-        <div className=''>
+    <div className='player-song-instance d-flex align-items-center'>
+        <div className='d-none d-md-block'>
             <img src={playerSongImg} className='player-song-instance-img me-4' />
         </div>
         <div className='player-song-instance-text d-flex'>
